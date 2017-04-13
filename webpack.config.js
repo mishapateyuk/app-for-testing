@@ -22,7 +22,7 @@ module.exports = {
       {
         test: /\.js$/,
         include: [path.join(__dirname, 'client')],
-        loader: ["babel-loader"],
+        loader: ["babel-loader", "eslint-loader"],
       }
     ],
   },
