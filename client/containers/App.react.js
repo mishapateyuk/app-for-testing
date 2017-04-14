@@ -10,8 +10,6 @@ class App extends React.PureComponent {
     return (
       <ConnectedRouter history={history}>
         <div>
-          <Link to="/about">about</Link>
-          <Link to="/">main</Link>
           <Route path="/" component={MainPage} />
           <Route path="/about" component={AboutPage} />
         </div>
