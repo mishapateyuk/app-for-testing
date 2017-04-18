@@ -1,13 +1,10 @@
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
-
-const initialReducer = (state = {}, action) => {
-  return state;
-};
+import testsReducer from './testsReducer';
 
 const rootReducer = combineReducers({
-  initial: initialReducer,
-  router: routerReducer
+  tests: testsReducer,
+  router: routerReducer,
 });
 
 export default rootReducer;

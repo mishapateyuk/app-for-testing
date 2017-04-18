@@ -1,13 +1,20 @@
 const express = require('express')
 const path = require('path');
 const webpack = require('webpack');
+const bodyParser = require('body-parser');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('../webpack.config.js');
-
+const getTestsDescriptions = require('./routes/getTestsDescriptions');
 const compiler = webpack(config);
 
 const server = express();
+
+server.use(bodyParser.json());
+
+//-----routes-------------------------------------------------------------------
+server.use('/api/get-tests-descriptions', getTestsDescriptions);
+//-----end-routes---------------------------------------------------------------
 
 server.use(webpackDevMiddleware(compiler, {
   hot: true,
