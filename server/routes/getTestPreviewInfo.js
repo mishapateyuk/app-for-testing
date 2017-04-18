@@ -3,17 +3,17 @@ const path = require ('path');
 const fs = require ('fs');
 
 const router = express.Router();
-const testsDescriptionsPath = path.join(__dirname,'../../storage/testsDescriptions.json');
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
   fs.readFile(
-    testsDescriptionsPath,
+    path.join(__dirname,'../../storage/testsPreviews.json'),
     'utf8',
     (err, data) => {
       if (err) {
         console.log(err);
       } else {
-        res.send(data);
+        console.log(data);
+        res('asdfasdfljasdflj');
       };
     }
   );

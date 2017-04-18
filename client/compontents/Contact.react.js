@@ -1,6 +1,6 @@
 import React from 'react';
 
 const Contact = () =>
-  <div>Contact page.</div>;
+  <div className="marketing">Contact page.</div>;
 
 export default Contact;

@@ -6,6 +6,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('../webpack.config.js');
 const getTestsDescriptions = require('./routes/getTestsDescriptions');
+const getTestPreviewInfo = require('./routes/getTestPreviewInfo');
 const compiler = webpack(config);
 
 const server = express();
@@ -14,6 +15,7 @@ server.use(bodyParser.json());
 
 //-----routes-------------------------------------------------------------------
 server.use('/api/get-tests-descriptions', getTestsDescriptions);
+server.use('/api/get-test-preview-info', getTestPreviewInfo);
 //-----end-routes---------------------------------------------------------------
 
 server.use(webpackDevMiddleware(compiler, {
@@ -24,7 +26,7 @@ server.use(webpackDevMiddleware(compiler, {
 
 server.use(webpackHotMiddleware(compiler));
 
-server.get('*', (req, res) => {
+server.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'))
 });
 
