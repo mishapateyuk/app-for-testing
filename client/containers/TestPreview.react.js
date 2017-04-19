@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import TestItem from '../compontents/TestItem.react';
-import Loading from '../compontents/Loading.react';
+import {clearTestPreviewInfo} from '../constants/constants';
 import {loadTestPreview} from '../actions/testsActionCreators';
+import Loading from '../compontents/Loading.react';
+import TestPreviewHeader from '../compontents/TestPreviewHeader.react';
+import TestBriefInformation from '../compontents/TestBriefInformation.react';
+import TestTopics from '../compontents/TestTopics.react';
+import TestTopUsers from '../compontents/TestTopUsers.react';
 
 const mapDispatchToProps = dispatch => ({
-  load: (id) => dispatch(loadTestPreview(id)),
+  loadTestPreview: id => dispatch(loadTestPreview(id)),
+  clearTestPeview: () => dispatch({
+    type: clearTestPreviewInfo,
+  }),
 });
 
 const mapStateToProps = ({testsInfo}) => ({
@@ -15,20 +22,43 @@ const mapStateToProps = ({testsInfo}) => ({
 
 class TestPreview extends React.PureComponent {
 
+  constructor(props) {
+    super(props);
+    this.props.clearTestPeview();
+  };
+
   componentDidMount() {
-    this.props.load();
+    this.props.loadTestPreview(this.props.match.params.id);
   };
 
   render () {
-    return !this.props.testPreviewInfo ? <Loading /> :
+    const previewInfo = this.props.testPreviewInfo;
+    return !previewInfo ? <Loading /> :
       <div className="marketing">
-        <h1>INFO IS HERE!</h1>
+        <TestPreviewHeader
+          name={previewInfo.name}
+          description={previewInfo.description}
+        />
+        <div className="row">
+          <TestBriefInformation
+            time={previewInfo.time}
+            questionsCount={previewInfo.questionsCount}
+            level={previewInfo.level}
+            stars={previewInfo.stars}
+          />
+          <TestTopics testTopics={previewInfo.testTopics} />
+          <TestTopUsers
+            topUsers={previewInfo.topUsers}
+            questionsCount={previewInfo.questionsCount}
+          />
+        </div>
       </div>;
   };
 };
 
 TestPreview.propTypes = {
-  load: PropTypes.func.isRequired,
+  loadTestPreview: PropTypes.func.isRequired,
+  clearTestPeview: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestPreview);

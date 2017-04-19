@@ -12,8 +12,11 @@ router.get('/:id', (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(data);
-        res('asdfasdfljasdflj');
+        const testsPreviews = JSON.parse(data);
+        const id = req.params.id;
+        const response = testsPreviews[id];
+        return response ? res.send(JSON.stringify(response)) :
+          res.sendStatus(404);
       };
     }
   );
