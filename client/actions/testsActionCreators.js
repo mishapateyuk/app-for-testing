@@ -11,6 +11,8 @@ export const loadTestsDescriptions = () => dispatch => {
         type: testsDescriptionsAreLoaded,
         testsDescriptions: result.data,
       })
+    ).catch(
+      //REDIRECT TO ERROR PAGE
     );
 };
 
@@ -23,9 +25,6 @@ export const loadTestPreview = id => dispatch => {
       })
     )
     .catch(
-      () => dispatch({
-        type: testPreviewInformationIsLoaded,
-        testPreviewInfo: 'TEST NOT FOUND',
-      })
+      //REDIRECT TO ERROR PAGE
     );
 };
