@@ -38,6 +38,7 @@ class TestPreview extends React.PureComponent {
         <TestPreviewHeader
           name={previewInfo.name}
           description={previewInfo.description}
+          id={this.props.match.params.id}
         />
         <div className="row">
           <TestBriefInformation

@@ -1,9 +1,8 @@
-import {testsDescriptionsAreLoaded} from '../constants/constants';
-
 const testsReducer = (
     state = {
       testsDescriptions: null,
       testPreviewInfo: null,
+      testQuestions: null,
     },
     action
   ) => {
@@ -30,6 +29,22 @@ const testsReducer = (
             state,
             {
               testPreviewInfo: null,
+            }
+          );
+        case 'TEST_QUESTIONS_ARE_LOADED' :
+          return Object.assign(
+            {},
+            state,
+            {
+              testQuestions: action.testQuestions,
+            }
+          );
+          case 'CLEAR_TEST_QUESTIONS' :
+          return Object.assign(
+            {},
+            state,
+            {
+              testQuestions: null,
             }
           );
       default :

@@ -7,6 +7,7 @@ import TestsList from './TestsList.react';
 import Contact from '../compontents/Contact.react';
 import About from '../compontents/About.react';
 import TestPreview from './TestPreview.react';
+import TestInProgress from './TestInProgress.react';
 
 class Container extends React.PureComponent {
   render() {
@@ -19,6 +20,7 @@ class Container extends React.PureComponent {
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
           <Route path="/test-preview/:id" component={TestPreview} />
+          <Route path="/test/:id" component={TestInProgress} />
         </div>
       </ConnectedRouter>
     </div>

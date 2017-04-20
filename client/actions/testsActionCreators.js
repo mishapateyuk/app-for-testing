@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {
     testsDescriptionsAreLoaded,
-    testPreviewInformationIsLoaded
+    testPreviewInformationIsLoaded,
+    testQuestionsAreLoaded
   } from '../constants/constants';
 
 export const loadTestsDescriptions = () => dispatch => {
@@ -22,6 +23,19 @@ export const loadTestPreview = id => dispatch => {
       result => dispatch({
         type: testPreviewInformationIsLoaded,
         testPreviewInfo: result.data,
+      })
+    )
+    .catch(
+      //REDIRECT TO ERROR PAGE
+    );
+};
+
+export const loadTestQuestions = id => dispatch => {
+  axios.get(`/api/questions/${id}`)
+    .then(
+      result => dispatch({
+        type: testQuestionsAreLoaded,
+        testQuestion: result.data,
       })
     )
     .catch(
