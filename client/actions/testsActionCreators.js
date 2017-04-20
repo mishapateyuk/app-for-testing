@@ -5,7 +5,7 @@ import {
   } from '../constants/constants';
 
 export const loadTestsDescriptions = () => dispatch => {
-  axios.get('/api/get-tests-descriptions/')
+  axios.get('/api/descriptions')
     .then(
       result => dispatch({
         type: testsDescriptionsAreLoaded,
@@ -17,7 +17,7 @@ export const loadTestsDescriptions = () => dispatch => {
 };
 
 export const loadTestPreview = id => dispatch => {
-  axios.get(`/api/get-test-preview-info/${id}`)
+  axios.get(`/api/preview-info/${id}`)
     .then(
       result => dispatch({
         type: testPreviewInformationIsLoaded,

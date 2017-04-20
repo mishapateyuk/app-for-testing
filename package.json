@@ -4,7 +4,7 @@
   "description": "app for testing students",
   "main": "\u001b[A\u001b[B",
   "scripts": {
-    "start": "node server index.js",
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
