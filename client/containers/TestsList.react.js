@@ -22,7 +22,16 @@ class TestsList extends React.PureComponent {
   render () {
     return !this.props.testsDescriptions ? <Loading /> :
       <div className="marketing">
-        {this.props.testsDescriptions.map(details => <TestItem key={details.id} details={details} />)}
+        {this.props.testsDescriptions.map(
+          (details, index) => {
+            return (!((index + 1) % 3)) ?
+              [
+                <TestItem key={details.id} details={details} />,
+                <hr className="featurette-divider" />
+              ] :
+            <TestItem key={details.id} details={details} />;
+          }
+        )}
       </div>;
   };
 };

@@ -57,6 +57,7 @@ class TestPreview extends React.PureComponent {
 };
 
 TestPreview.propTypes = {
+  testPreviewInfo: PropTypes.object,
   loadTestPreview: PropTypes.func.isRequired,
   clearTestPeview: PropTypes.func.isRequired,
 };

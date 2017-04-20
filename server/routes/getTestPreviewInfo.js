@@ -6,15 +6,15 @@ const router = express.Router();
 
 router.get('/:id', (req, res) => {
   fs.readFile(
-    path.join(__dirname,'../../storage/testsPreviews.json'),
+    path.join(__dirname,'../../storage/testsInformation.json'),
     'utf8',
     (err, data) => {
       if (err) {
         console.log(err);
       } else {
-        const testsPreviews = JSON.parse(data);
+        const testsInformation = JSON.parse(data);
         const id = req.params.id;
-        const response = testsPreviews[id];
+        const response = testsInformation[id];
         return response ? res.send(JSON.stringify(response)) :
           res.sendStatus(404);
       };

@@ -11,7 +11,10 @@ const TestItem = ({details}) => (
     <p>{details.description}</p>
     <p>
       <Glyphicon type="pencil" />
-      {details.level}{<Stars number={details.stars} />}
+      {details.level}
+    </p>
+    <p>
+      {<Stars number={details.stars} />}
     </p>
     <p>
       <Glyphicon type="time" />
