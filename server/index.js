@@ -20,13 +20,13 @@ server.use('/api/get-test-preview-info', getTestPreviewInfo);
 
 server.use(webpackDevMiddleware(compiler, {
   hot: true,
-  publicPath: config.output.puplicPath,
+  publicPath: config.output.publicPath,
   noInfo: true,
 }));
 
 server.use(webpackHotMiddleware(compiler));
 
-server.get('/*', (req, res) => {
+server.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'))
 });
 

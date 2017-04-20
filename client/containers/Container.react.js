@@ -18,7 +18,7 @@ class Container extends React.PureComponent {
           <Route exact path="/" component={TestsList} />
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
-          <Route path="/test/:id" component={TestPreview} />
+          <Route path="/test-preview/:id" component={TestPreview} />
         </div>
       </ConnectedRouter>
     </div>

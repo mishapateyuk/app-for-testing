@@ -20,7 +20,7 @@ const TestItem = ({details}) => (
       <Glyphicon type="time" />
       {details.time}
     </p>
-    <Link className="btn btn-default" to={`/test/${details.id}`} role="button">
+    <Link className="btn btn-default" to={`/test-preview/${details.id}`} role="button">
       See details &raquo;
     </Link>
   </div>

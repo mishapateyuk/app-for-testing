@@ -29,7 +29,7 @@ class Header extends React.PureComponent {
               <ul className="nav navbar-nav">
                 <li>
                   <NavLink activeClassName="active-nav-link" exact to="/">
-                    Home
+                    Tests list
                   </NavLink>
                 </li>
                 <li>

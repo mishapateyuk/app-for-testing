@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const TestBriefInformation = ({time, questionsCount, level, stars}) =>
   <div className="col-lg-4">
     <h2>Brief iformation:</h2>
-    <p title="Time to solve the test"><Glyphicon type="time" />{time}</p>
+    <p title="Time to passing the test"><Glyphicon type="time" />{time}</p>
     <p title="Questions count">
       <Glyphicon type="list-alt" />{questionsCount} questions
     </p>
