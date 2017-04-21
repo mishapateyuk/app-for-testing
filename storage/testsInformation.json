@@ -37,6 +37,37 @@
       "ES6",
       "DOM elements",
       "DOM Events"
+    ],
+    "questions": [
+      {
+        "text": "Hello *World*!",
+        "answers": [
+          {
+            "type": "checkbox",
+            "text": "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)"
+          },
+          {
+            "type": "radio",
+            "text": "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)"
+          },
+          {
+            "type": "checkbox",
+            "text": "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)"
+          },
+          {
+            "type": "radio",
+            "text": "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)"
+          },
+          {
+            "type": "checkbox",
+            "text": "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)"
+          },
+          {
+            "type": "radio",
+            "text": "It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)"
+          }
+        ]
+      }
     ]
   },
   "364bb665-842e-4976-9dd0-d0ba5021cb64": {

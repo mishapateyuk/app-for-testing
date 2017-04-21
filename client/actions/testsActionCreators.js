@@ -35,7 +35,7 @@ export const loadTestQuestions = id => dispatch => {
     .then(
       result => dispatch({
         type: testQuestionsAreLoaded,
-        testQuestion: result.data,
+        testQuestions: result.data,
       })
     )
     .catch(

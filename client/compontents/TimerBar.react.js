@@ -34,7 +34,6 @@ class TimerBar extends React.PureComponent {
     const timeDifference = Math.round((currentDate - testInitialTime) / 1000);
     const progress = timeDifference / testTime * 100;
     const minutesRemaining = Math.floor((testTime - timeDifference) / 60);
-    console.log(testTime, timeDifference);
     const secondsRemaining =
       Math.floor(testTime - timeDifference) - minutesRemaining * 60;
     const timeRemaining = `${minutesRemaining} : ${secondsRemaining}`;
