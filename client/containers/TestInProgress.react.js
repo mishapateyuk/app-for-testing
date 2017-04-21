@@ -2,31 +2,42 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import UserRegistrationForm from './UserRegistrationForm.react';
-import {loadTestQuestions} from '../actions/testsActionCreators';
+import {loadTestQuestions, loadTestPreview} from '../actions/testsActionCreators';
+import TimerBar from '../compontents/TimerBar.react';
 
 const mapDispatchToProps = dispatch => ({
-  load: id => dispatch(loadTestQuestions),
+  loadQuestions: id => dispatch(loadTestQuestions(id)),
+  loadPreviewInfo: id => dispatch(loadTestPreview(id)),
 });
 
-const mapStateToProps = ({userInfo}) => ({
+const mapStateToProps = ({userInfo, testsInfo}) => ({
   userName: userInfo.userName,
+  testPreviewInfo: testsInfo.testPreviewInfo,
 });
 
-class TestInPropgress extends React.PureComponent {
+class TestInProgress extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.props.load(this.props.match.id);
+    this.props.loadQuestions(this.props.match.params.id);
+    if (!this.props.testPreviewInfo) {
+      this.props.loadPreviewInfo(this.props.match.params.id);
+    }
   };
+
   render () {
     return !this.props.userName ?
       <UserRegistrationForm /> :
-      <h1 className="marketing">{this.props.userName}</h1>;
+      <div className="marketing">
+        <TimerBar />
+      </div>;
   };
 };
 
-TestInPropgress.propTypes = {
-  load: PropTypes.func.isRequired,
+TestInProgress.propTypes = {
+  loadQuestions: PropTypes.func.isRequired,
+  loadPreviewInfo: PropTypes.func.isRequired,
   userName: PropTypes.string,
+  testInfo: PropTypes.object,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestInPropgress);
+export default connect(mapStateToProps, mapDispatchToProps)(TestInProgress);

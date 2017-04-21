@@ -3,6 +3,7 @@ const testsReducer = (
       testsDescriptions: null,
       testPreviewInfo: null,
       testQuestions: null,
+      testInitialTime: null,
     },
     action
   ) => {
@@ -45,6 +46,14 @@ const testsReducer = (
             state,
             {
               testQuestions: null,
+            }
+          );
+          case 'START_TEST' :
+          return Object.assign(
+            {},
+            state,
+            {
+              testInitialTime: action.initialTime,
             }
           );
       default :

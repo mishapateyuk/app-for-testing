@@ -10,3 +10,7 @@ export const testQuestionsAreLoaded = 'TEST_QUESTIONS_ARE_LOADED';
 export const cleartestQuestions = 'CLEAR_TEST_QUESTIONS';
 
 export const setUserName = 'SET_USERNAME';
+
+export const startTest = 'START_TEST';
+
+export const testTimeOver = 'TEST_TIME_OVER';
