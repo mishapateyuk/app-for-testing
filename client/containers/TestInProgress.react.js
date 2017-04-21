@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import UserInformation from '../compontents/UserInformation.react';
+import UserRegistrationForm from './UserRegistrationForm.react';
 import {loadTestQuestions} from '../actions/testsActionCreators';
 
 const mapDispatchToProps = dispatch => ({
@@ -19,8 +19,8 @@ class TestInPropgress extends React.PureComponent {
   };
   render () {
     return !this.props.userName ?
-      <UserInformation /> :
-      <h1 classNmae="marketing">start</h1>;
+      <UserRegistrationForm /> :
+      <h1 className="marketing">{this.props.userName}</h1>;
   };
 };
 
