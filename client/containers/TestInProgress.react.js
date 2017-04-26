@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import UserRegistrationForm from './UserRegistrationForm.react';
 import {loadTestQuestions, loadTestPreview} from '../actions/testsActionCreators';
 import TimerBar from '../compontents/TimerBar.react';
+import QuestionText from '../compontents/QuestionText.react';
+import Answers from '../compontents/Answers.react';
 
 const mapDispatchToProps = dispatch => ({
   loadQuestions: id => dispatch(loadTestQuestions(id)),
@@ -28,6 +30,8 @@ class TestInProgress extends React.PureComponent {
     return !this.props.userName ?
       <UserRegistrationForm /> :
       <div className="marketing">
+        <QuestionText />
+        <Answers />
         <TimerBar />
       </div>;
   };

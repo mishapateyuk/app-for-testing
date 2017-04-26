@@ -39,7 +39,7 @@ class UserInformation extends React.PureComponent {
   };
 
   isButtonDisabled() {
-    return !this.state.firstName && !this.state.lastName;
+    return this.state.firstName && this.state.lastName;
   };
 
   render () {
@@ -61,7 +61,7 @@ class UserInformation extends React.PureComponent {
             <button
               className="btn btn-lg btn-success"
               role="button"
-              disabled={this.isButtonDisabled()}
+              disabled={!this.isButtonDisabled()}
               onClick={() => this.props.setUserName(
                   this.state.firstName,
                   this.state.lastName

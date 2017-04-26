@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {startTest, testTimeOver} from '../constants/constants';
 
-const mapStateToProps = ({testsInfo}) => ({
+const mapStateToProps = ({testsInfo, userInfo}) => ({
   testTime: testsInfo.testPreviewInfo.time,
-  testInitialTime: testsInfo.testInitialTime,
+  testInitialTime: userInfo.testInitialTime,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -36,7 +36,8 @@ class TimerBar extends React.PureComponent {
     const minutesRemaining = Math.floor((testTime - timeDifference) / 60);
     const secondsRemaining =
       Math.floor(testTime - timeDifference) - minutesRemaining * 60;
-    const timeRemaining = `${minutesRemaining} : ${secondsRemaining}`;
+    const timeRemaining = `${minutesRemaining} :
+      ${secondsRemaining < 10 ? '0' + secondsRemaining : secondsRemaining}`;
     if (minutesRemaining < 0) {
       clearInterval(this.interval);
       this.props.timeOver();

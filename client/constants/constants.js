@@ -14,3 +14,5 @@ export const setUserName = 'SET_USERNAME';
 export const startTest = 'START_TEST';
 
 export const testTimeOver = 'TEST_TIME_OVER';
+
+export const changeQuestionIndex = 'CHANGE_QUESTION_INDEX';

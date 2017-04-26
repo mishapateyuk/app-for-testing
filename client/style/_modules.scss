@@ -11,7 +11,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 100px;
 }
 .footer {
   position: absolute;
@@ -94,4 +94,21 @@ body {
   position: absolute;
   font-weight: bold;
   left: 50%;
+}
+
+.question-text {
+  background-color: #eeeeee;
+  padding: 15px;
+  font-size: 22px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.answers {
+  font-size: 18px;
+  padding: 15px;
+}
+
+.btn {
+  margin-right: 10px;
 }
