@@ -1,15 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {checkUserName} from '../services/checkAuthData';
-import {connect} from 'react-redux';
-import {setUserName} from '../constants/constants';
-
-const mapDispatchToProps = dispatch => ({
-  setUserName: (firstName, lastName) => dispatch({
-    type: setUserName,
-    userName: `${firstName} ${lastName}`,
-  }),
-});
 
 class UserInformation extends React.PureComponent {
   constructor(props) {
@@ -80,4 +71,4 @@ UserInformation.PropTypes = {
   setUserName: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(UserInformation);
+export default UserInformation;

@@ -2,7 +2,7 @@ import React from 'react';
 import {ConnectedRouter} from 'react-router-redux';
 import {history} from '../store';
 import Container from './Container.react';
-import Footer from '../compontents/Footer.react';
+import Footer from '../components/Footer.react';
 
 class App extends React.PureComponent {
   render() {

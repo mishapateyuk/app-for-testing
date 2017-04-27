@@ -1,19 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {startTest, testTimeOver} from '../constants/constants';
+import {startTest, clearCurrentTestInfo} from '../constants/constants';
+import PropTypes from 'prop-types';
 
-const mapStateToProps = ({testsInfo, userInfo}) => ({
+const mapStateToProps = ({testsInfo}) => ({
   testTime: testsInfo.testPreviewInfo.time,
-  testInitialTime: userInfo.testInitialTime,
+  testInitialTime: testsInfo.testInitialTime,
 });
 
 const mapDispatchToProps = dispatch => ({
-  startTest: () => dispatch({
+  startTest: (currentTestId) => dispatch({
     type: startTest,
     initialTime: new Date().valueOf(),
+    currentTestId,
   }),
   timeOver: () => dispatch({
-    type: testTimeOver,
+    type: clearCurrentTestInfo,
   }),
 });
 
@@ -23,7 +25,7 @@ class TimerBar extends React.PureComponent {
     this.state = {
       testTime: this.props.testTime.slice(0, -4) * 60,
       progress: 0,
-      timeRemaining: `${this.props.testTime.slice(0, -4)} : 00`,
+      timeRemaining: '',
     };
   };
 
@@ -55,9 +57,9 @@ class TimerBar extends React.PureComponent {
 
   componentDidMount() {
     if (!this.props.testInitialTime) {
-      this.props.startTest();
+      this.props.startTest(this.props.currentTestId);
     }
-    this.interval = setInterval(this.tick.bind(this), 1000);
+    this.interval = setInterval(this.tick.bind(this), 16);
   };
 
   render () {
@@ -72,5 +74,14 @@ class TimerBar extends React.PureComponent {
     );
   };
 };
+
+TimerBar.propTypes = {
+  testTime: PropTypes.string.isRequired,
+  testInitialTime: PropTypes.number,
+  startTest: PropTypes.func.isRequired,
+  timeOver: PropTypes.func.isRequired,
+  currentTestId: PropTypes.string,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimerBar);

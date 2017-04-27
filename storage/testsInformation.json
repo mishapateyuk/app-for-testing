@@ -247,6 +247,176 @@
       "ES6",
       "DOM elements",
       "DOM Events"
+    ],
+        "questions": [
+      {
+        "text": "1 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "type": "checkbox",
+        "answers": [
+          {
+            "text": "answer 1-1"
+          },
+          {
+            "text": "answer 1-2"
+          },
+          {
+            "text": "answer 1-3"
+          },
+          {
+            "text": "answer 1-4"
+          },
+          {
+            "text": "answer 1-5"
+          },
+          {
+            "text": "answer 1-6"
+          }
+        ]
+      },
+      {
+        "text": "2 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "answer 2-1"
+          },
+          {
+            "text": "answer 2-2"
+          },
+          {
+            "text": "answer 2-3"
+          },
+          {
+            "text": "answer 2-4"
+          },
+          {
+            "text": "answer 2-5"
+          },
+          {
+            "text": "answer 2-6"
+          }
+        ]
+      },
+      {
+        "text": "4 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "answer 4-1"
+          },
+          {
+            "text": "answer 4-2"
+          },
+          {
+            "text": "answer 4-3"
+          },
+          {
+            "text": "answer 4-4"
+          },
+          {
+            "text": "answer 4-5"
+          },
+          {
+            "text": "answer 4-6"
+          }
+        ]
+      },
+      {
+        "text": "4 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "answer 4-1"
+          },
+          {
+            "text": "answer 4-2"
+          },
+          {
+            "text": "answer 4-3"
+          },
+          {
+            "text": "answer 4-4"
+          },
+          {
+            "text": "answer 4-5"
+          },
+          {
+            "text": "answer 4-6"
+          }
+        ]
+      },
+      {
+        "text": "5 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "answer 5-1"
+          },
+          {
+            "text": "answer 5-2"
+          },
+          {
+            "text": "answer 5-3"
+          },
+          {
+            "text": "answer 5-4"
+          },
+          {
+            "text": "answer 5-5"
+          },
+          {
+            "text": "answer 5-6"
+          }
+        ]
+      },
+      {
+        "text": "6 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "answer 6-1"
+          },
+          {
+            "text": "answer 6-2"
+          },
+          {
+            "text": "answer 6-3"
+          },
+          {
+            "text": "answer 6-4"
+          },
+          {
+            "text": "answer 6-5"
+          },
+          {
+            "text": "answer 6-6"
+          }
+        ]
+      },
+      {
+        "text": "7 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "answer 7-1"
+          },
+          {
+            "text": "answer 7-2"
+          },
+          {
+            "text": "answer 7-3"
+          },
+          {
+            "text": "answer 7-4"
+          },
+          {
+            "text": "answer 7-5"
+          },
+          {
+            "text": "answer 7-6"
+          }
+        ]
+      }
     ]
   },
   "50b43ca6-4d61-447d-ac25-bc81ad4b037c": {

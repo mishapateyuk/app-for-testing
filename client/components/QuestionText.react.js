@@ -4,9 +4,9 @@ import {markdown} from 'markdown';
 import {connect} from 'react-redux';
 import Markdown from './Markdown.react';
 
-const mapStateToProps = ({testsInfo, userInfo}) => ({
+const mapStateToProps = ({testsInfo}) => ({
   questions: testsInfo.testQuestions,
-  questionIndex: userInfo.questionIndex,
+  questionIndex: testsInfo.questionIndex,
 });
 
 const QuestionText = ({questions, questionIndex}) =>
@@ -14,5 +14,10 @@ const QuestionText = ({questions, questionIndex}) =>
     className="question-text"
     html={questions[questionIndex].text}
   />;
+
+QuestionText.propTypes = {
+  questions: PropTypes.array.isRequired,
+  questionIndex: PropTypes.number.isRequired,
+};
 
 export default connect(mapStateToProps, null)(QuestionText);

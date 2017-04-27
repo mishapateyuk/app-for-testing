@@ -11,8 +11,10 @@ export const cleartestQuestions = 'CLEAR_TEST_QUESTIONS';
 
 export const setUserName = 'SET_USERNAME';
 
+export const clearUserName = 'CLEAR_USERNAME';
+
 export const startTest = 'START_TEST';
 
-export const testTimeOver = 'TEST_TIME_OVER';
+export const clearCurrentTestInfo = 'CLEAR_CURRENT_TEST_INFO';
 
 export const changeQuestionIndex = 'CHANGE_QUESTION_INDEX';

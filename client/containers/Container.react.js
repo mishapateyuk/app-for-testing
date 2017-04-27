@@ -4,8 +4,8 @@ import {Route} from 'react-router-dom';
 import {ConnectedRouter} from 'react-router-redux';
 import {history} from '../store';
 import TestsList from './TestsList.react';
-import Contact from '../compontents/Contact.react';
-import About from '../compontents/About.react';
+import Contact from '../components/Contact.react';
+import About from '../components/About.react';
 import TestPreview from './TestPreview.react';
 import TestInProgress from './TestInProgress.react';
 

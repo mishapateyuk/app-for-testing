@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink, Link} from 'react-router-dom';
 import {ConnectedRouter} from 'react-router-redux';
 import {history} from '../store';
-import Glyphicon from '../compontents/Glyphicon.react';
+import Glyphicon from '../components/Glyphicon.react';
 
 class Header extends React.PureComponent {
   render() {

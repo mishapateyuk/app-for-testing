@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import TestItem from '../compontents/TestItem.react';
-import Loading from '../compontents/Loading.react';
+import TestItem from '../components/TestItem.react';
+import Loading from '../components/Loading.react';
 import {loadTestsDescriptions} from '../actions/testsActionCreators';
 
 const mapDispatchToProps = dispatch => ({

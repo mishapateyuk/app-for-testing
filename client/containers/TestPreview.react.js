@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {clearTestPreviewInfo} from '../constants/constants';
 import {loadTestPreview} from '../actions/testsActionCreators';
-import Loading from '../compontents/Loading.react';
-import TestPreviewHeader from '../compontents/TestPreviewHeader.react';
-import TestBriefInformation from '../compontents/TestBriefInformation.react';
-import TestTopics from '../compontents/TestTopics.react';
-import TestTopUsers from '../compontents/TestTopUsers.react';
+import Loading from '../components/Loading.react';
+import TestPreviewHeader from '../components/TestPreviewHeader.react';
+import TestBriefInformation from '../components/TestBriefInformation.react';
+import TestTopics from '../components/TestTopics.react';
+import TestTopUsers from '../components/TestTopUsers.react';
 
 const mapDispatchToProps = dispatch => ({
   loadTestPreview: id => dispatch(loadTestPreview(id)),

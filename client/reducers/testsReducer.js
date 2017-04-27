@@ -4,6 +4,8 @@ const testsReducer = (
       testPreviewInfo: null,
       testQuestions: null,
       testInitialTime: null,
+      questionIndex: 0,
+      currentTestId: null,
     },
     action
   ) => {
@@ -24,30 +26,50 @@ const testsReducer = (
             testPreviewInfo: action.testPreviewInfo,
           }
         );
-        case 'CLEAR_TEST_PREVIEW_INFO' :
-          return Object.assign(
-            {},
-            state,
-            {
-              testPreviewInfo: null,
-            }
-          );
-        case 'TEST_QUESTIONS_ARE_LOADED' :
-          return Object.assign(
-            {},
-            state,
-            {
-              testQuestions: action.testQuestions,
-            }
-          );
-          case 'CLEAR_TEST_QUESTIONS' :
-          return Object.assign(
-            {},
-            state,
-            {
-              testQuestions: null,
-            }
-          );
+      case 'CLEAR_TEST_PREVIEW_INFO' :
+        return Object.assign(
+          {},
+          state,
+          {
+            testPreviewInfo: null,
+          }
+        );
+      case 'TEST_QUESTIONS_ARE_LOADED' :
+        return Object.assign(
+          {},
+          state,
+          {
+            testQuestions: action.testQuestions,
+          }
+        );
+      case 'START_TEST' :
+        return Object.assign(
+          {},
+          state,
+          {
+            testInitialTime: action.initialTime,
+            currentTestId: action.currentTestId,
+          }
+        );
+      case 'CLEAR_CURRENT_TEST_INFO' :
+        return Object.assign(
+          {},
+          state,
+          {
+            testInitialTime: null,
+            questionIndex: 0,
+            currentTestId: null,
+            testQuestions: null,
+          }
+        );
+      case 'CHANGE_QUESTION_INDEX' :
+        return Object.assign(
+          {},
+          state,
+          {
+            questionIndex: action.newIndex,
+          }
+        );
       default :
         return state;
   };
