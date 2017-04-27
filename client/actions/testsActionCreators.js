@@ -1,9 +1,10 @@
 import axios from 'axios';
 import {
-    testsDescriptionsAreLoaded,
-    testPreviewInformationIsLoaded,
-    testQuestionsAreLoaded
-  } from '../constants/constants';
+  testsDescriptionsAreLoaded,
+  testPreviewInformationIsLoaded,
+  testQuestionsAreLoaded,
+  testAnswersAreChecked
+} from '../constants/constants';
 
 export const loadTestsDescriptions = () => dispatch => {
   axios.get('/api/descriptions')
@@ -40,5 +41,15 @@ export const loadTestQuestions = id => dispatch => {
     )
     .catch(
       //REDIRECT TO ERROR PAGE
+    );
+};
+
+export const checkAnswers = answers => dispatch => {
+  axios.post('/api/check-answers', answers)
+    .then(
+      result => dispatch({
+        type: testAnswersAreChecked,
+        testResult: result.data,
+      })
     );
 };

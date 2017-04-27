@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {startTest, clearCurrentTestInfo} from '../constants/constants';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router';
 
 const mapStateToProps = ({testsInfo}) => ({
   testTime: testsInfo.testPreviewInfo.time,
@@ -9,7 +10,7 @@ const mapStateToProps = ({testsInfo}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  startTest: (currentTestId) => dispatch({
+  startTest: currentTestId => dispatch({
     type: startTest,
     initialTime: new Date().valueOf(),
     currentTestId,
@@ -43,6 +44,7 @@ class TimerBar extends React.PureComponent {
     if (minutesRemaining < 0) {
       clearInterval(this.interval);
       this.props.timeOver();
+      this.props.history.push('/test-result');
       return;
     }
     this.setState({
@@ -84,4 +86,4 @@ TimerBar.propTypes = {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(TimerBar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TimerBar));

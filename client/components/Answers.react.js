@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import uuidV4Js from 'uuid-v4.js';
 import Markdown from './Markdown.react';
 import {changeQuestionIndex} from '../constants/constants';
+import {withRouter} from 'react-router';
 
 const mapStateToProps = ({testsInfo}) => ({
   questions: testsInfo.testQuestions,
@@ -19,15 +20,15 @@ const mapDispatchToProps = dispatch => ({
   endTest: () => dispatch(),
 });
 
-const buttonHandler = (goToNextQuestion, index, questionsCount) => (e) => {
+const buttonHandler = (goToNextQuestion, index, questionsCount, history) => (e) => {
   e.preventDefault();
   const nextQuestionIndex = Number(index) + 1;
   return nextQuestionIndex < questionsCount ?
     goToNextQuestion(nextQuestionIndex) :
-    null;
+    history.push('/test-result');
 };
 
-const Answers = ({questions, questionIndex, goToNextQuestion}) =>
+const Answers = ({questions, questionIndex, goToNextQuestion, history}) =>
   <form className="answers">
     {
       questions[questionIndex].answers.map(
@@ -43,7 +44,7 @@ const Answers = ({questions, questionIndex, goToNextQuestion}) =>
     <button
       className="btn btn-lg btn-success"
       onClick={
-        buttonHandler(goToNextQuestion, questionIndex, questions.length)
+        buttonHandler(goToNextQuestion, questionIndex, questions.length, history)
       }
     >
       Answer &#8658;
@@ -57,4 +58,4 @@ Answers.propTypes = {
   endTest: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Answers);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Answers));

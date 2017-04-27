@@ -6,6 +6,7 @@ const testsReducer = (
       testInitialTime: null,
       questionIndex: 0,
       currentTestId: null,
+      testAnswers: [],
     },
     action
   ) => {
@@ -60,6 +61,7 @@ const testsReducer = (
             questionIndex: 0,
             currentTestId: null,
             testQuestions: null,
+            testAnswers: null,
           }
         );
       case 'CHANGE_QUESTION_INDEX' :
@@ -68,6 +70,14 @@ const testsReducer = (
           state,
           {
             questionIndex: action.newIndex,
+          }
+        );
+      case 'ANSWER_THE_QUESTION' :
+        return Object.assign(
+          {},
+          state,
+          {
+            testAnswers: state.testAnswers.concat(action.answer)
           }
         );
       default :
