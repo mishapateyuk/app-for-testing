@@ -9,6 +9,8 @@ export const testQuestionsAreLoaded = 'TEST_QUESTIONS_ARE_LOADED';
 
 export const cleartestQuestions = 'CLEAR_TEST_QUESTIONS';
 
+export const answerTheQuestion = 'ANSWER_THE_QUESTION';
+
 export const testAnswersAreChecked = 'TEST_ANSWERS_ARE_CHECKED';
 
 export const setUserName = 'SET_USERNAME';

@@ -43,7 +43,6 @@ class TimerBar extends React.PureComponent {
       ${secondsRemaining < 10 ? '0' + secondsRemaining : secondsRemaining}`;
     if (minutesRemaining < 0) {
       clearInterval(this.interval);
-      this.props.timeOver();
       this.props.history.push('/test-result');
       return;
     }
@@ -55,6 +54,7 @@ class TimerBar extends React.PureComponent {
 
   componentWillUnmount() {
     clearInterval(this.interval);
+    this.props.timeOver();
   };
 
   componentDidMount() {

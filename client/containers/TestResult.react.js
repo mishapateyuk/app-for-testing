@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import {checkAnswers as checkAnswersAction} from '../actions/testsActionCreators';
 import Loading from '../components/Loading.react';
 
-const mapStateToProps = ({testsInfo}) => ({
-  answers: testsInfo.answers,
-  id: testsInfo.testId,
+const mapStateToProps = ({testsInfo, userInfo}) => ({
+  answers: testsInfo.testAnswers,
+  id: testsInfo.currentTestId,
+  userName: userInfo.userName,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -29,7 +30,7 @@ class TestResult extends React.PureComponent {
 };
 
 TestResult.propTypes = {
-  answers: PropTypes.array,
+  answers: PropTypes.array.isReaquired,
   id: PropTypes.string,
 };
 

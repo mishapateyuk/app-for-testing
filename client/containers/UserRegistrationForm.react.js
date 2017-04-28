@@ -1,6 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {checkUserName} from '../services/checkAuthData';
+import {connect} from 'react-redux';
+import {setUserName} from '../constants/constants';
+
+const mapDispatchToProps = dispatch => ({
+  setUserName: userName => dispatch({
+    type: setUserName,
+    userName,
+  }),
+});
 
 class UserInformation extends React.PureComponent {
   constructor(props) {
@@ -54,8 +63,7 @@ class UserInformation extends React.PureComponent {
               role="button"
               disabled={!this.isButtonDisabled()}
               onClick={() => this.props.setUserName(
-                  this.state.firstName,
-                  this.state.lastName
+                `${this.state.firstName} ${this.state.lastName}`
               )}
             >
               Done
@@ -71,4 +79,4 @@ UserInformation.PropTypes = {
   setUserName: PropTypes.func.isRequired,
 };
 
-export default UserInformation;
+export default connect(null, mapDispatchToProps)(UserInformation);

@@ -14,9 +14,10 @@ const mapDispatchToProps = dispatch => ({
   clearCurrentTestInfo: () => dispatch({type: clearCurrentTestInfo}),
 });
 
-const mapStateToProps = state => ({
-  testPreviewInfo: state.testsInfo.testPreviewInfo,
-  currentTestId: state.testsInfo.currentTestId,
+const mapStateToProps = ({testsInfo, userInfo}) => ({
+  testPreviewInfo: testsInfo.testPreviewInfo,
+  currentTestId: testsInfo.currentTestId,
+  userName: userInfo.userName,
 });
 
 class TestInProgress extends React.PureComponent {
@@ -24,24 +25,15 @@ class TestInProgress extends React.PureComponent {
     super(props);
     this.id = this.props.match.params.id;
     this.props.clearCurrentTestInfo();
-    this.state = {
-      userName: null
-    };
     this.props.loadQuestions(this.id);
     if (!this.props.testPreviewInfo) {
       this.props.loadPreviewInfo(this.id);
     };
   };
 
-  setUserName(userName) {
-    this.setState({
-      userName,
-    });
-  };
-
   render () {
-    return !this.state.userName ?
-      <UserRegistrationForm setUserName={this.setUserName.bind(this)} /> :
+    return !this.props.userName ?
+      <UserRegistrationForm /> :
       <div className="marketing">
         <QuestionText />
         <Answers />

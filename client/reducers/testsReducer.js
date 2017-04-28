@@ -59,9 +59,7 @@ const testsReducer = (
           {
             testInitialTime: null,
             questionIndex: 0,
-            currentTestId: null,
             testQuestions: null,
-            testAnswers: null,
           }
         );
       case 'CHANGE_QUESTION_INDEX' :

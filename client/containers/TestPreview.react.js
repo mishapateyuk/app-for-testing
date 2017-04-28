@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {clearTestPreviewInfo} from '../constants/constants';
+import {clearUserName, clearTestPreviewInfo} from '../constants/constants';
 import {loadTestPreview} from '../actions/testsActionCreators';
 import Loading from '../components/Loading.react';
 import TestPreviewHeader from '../components/TestPreviewHeader.react';
@@ -14,6 +14,7 @@ const mapDispatchToProps = dispatch => ({
   clearTestPeview: () => dispatch({
     type: clearTestPreviewInfo,
   }),
+  clearUserName: () => dispatch({type: clearUserName}),
 });
 
 const mapStateToProps = ({testsInfo}) => ({
@@ -25,6 +26,7 @@ class TestPreview extends React.PureComponent {
   constructor(props) {
     super(props);
     this.props.clearTestPeview();
+    this.props.clearUserName();
   };
 
   componentDidMount() {
@@ -61,6 +63,7 @@ TestPreview.propTypes = {
   testPreviewInfo: PropTypes.object,
   loadTestPreview: PropTypes.func.isRequired,
   clearTestPeview: PropTypes.func.isRequired,
+  clearUserName: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestPreview);
