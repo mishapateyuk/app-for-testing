@@ -8,30 +8,40 @@ const mapStateToProps = ({testsInfo, userInfo}) => ({
   answers: testsInfo.testAnswers,
   id: testsInfo.currentTestId,
   userName: userInfo.userName,
+  testResult: testsInfo.testResult,
 });
 
 const mapDispatchToProps = dispatch => ({
-  checkAnswers: (answers, id) => dispatch(checkAnswersAction(answers, id)),
+  checkAnswers: (answers, id, userName) => dispatch(
+    checkAnswersAction(answers, id, userName)
+  ),
 });
 
 class TestResult extends React.PureComponent {
   componentDidMount() {
-    const {checkAnswers, answers, id} = this.props;
-    if (answers && id) {
-      checkAnswers(answers, id);
+    const {checkAnswers, answers, id, userName} = this.props;
+    if (answers && id && userName) {
+      checkAnswers(answers, id, userName);
     };
   };
   render() {
-    if (!this.props.answers || !this.props.id) {
-      return <h1 className="marketing">There's no test result</h1>;
+    const {answers, id, testResult, userName} = this.props;
+    if (!answers || !id || !userName) {
+      return <div className="test-result bg-info">There's no test result</div>;
     };
-    return <Loading />;
+    return testResult ?
+      <div className="test-result bg-info">
+        {`${userName}'s test result is ${testResult}`}
+      </div> :
+      <Loading />;
   };
 };
 
 TestResult.propTypes = {
-  answers: PropTypes.array.isReaquired,
+  answers: PropTypes.array,
   id: PropTypes.string,
+  userName: PropTypes.string,
+  testResult: PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestResult);

@@ -49,8 +49,8 @@ class Answers extends React.PureComponent {
       questionIndex,
       questionAnswer: inputs.reduce(
         (acc, input, i) => {
-          if (input && input.checked) {
-            acc.push(i);
+          if (input.checked) {
+            return acc.concat([i]);
           };
           return acc;
         },

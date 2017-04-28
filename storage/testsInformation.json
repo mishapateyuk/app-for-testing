@@ -2,7 +2,7 @@
   "b84adad4-6ebb-48e4-a652-a0d5a09c1ca4": {
     "name": "JavaScript",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos natus dignissimos dolorem quisquam praesentium voluptatum, beatae sunt tenetur quam repudiandae repellat quis minus, ipsam ratione at illo amet tempora.",
-    "questionsCount": "100",
+    "questionsCount": "7",
     "time": "10 min",
     "level": "Beginner",
     "stars": "1",
@@ -88,26 +88,26 @@
         ]
       },
       {
-        "text": "4 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "text": "3 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
         "type": "radio",
         "answers": [
           {
-            "text": "answer 4-1"
+            "text": "answer 3-1"
           },
           {
-            "text": "answer 4-2"
+            "text": "answer 3-2"
           },
           {
-            "text": "answer 4-3"
+            "text": "answer 3-3"
           },
           {
-            "text": "answer 4-4"
+            "text": "answer 3-4"
           },
           {
-            "text": "answer 4-5"
+            "text": "answer 3-5"
           },
           {
-            "text": "answer 4-6"
+            "text": "answer 3-6"
           }
         ]
       },
@@ -207,12 +207,51 @@
           }
         ]
       }
+    ],
+    "answers": [
+      {
+        "questionIndex": 0,
+        "questionAnswer": [
+          0
+        ]
+      },
+      {
+        "questionIndex": 1,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 2,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 3,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 4,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 5,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 6,
+        "questionAnswer": [
+          0
+        ]
+      }
     ]
   },
   "364bb665-842e-4976-9dd0-d0ba5021cb64": {
     "name": "JavaScript",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos natus dignissimos dolorem quisquam praesentium voluptatum, beatae sunt tenetur quam repudiandae repellat quis minus, ipsam ratione at illo amet tempora.",
-    "questionsCount": "50",
+    "questionsCount": "7",
     "time": "1 min",
     "level": "Middle",
     "stars": "2",
@@ -248,7 +287,7 @@
       "DOM elements",
       "DOM Events"
     ],
-        "questions": [
+    "questions": [
       {
         "text": "1 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
         "type": "checkbox",
@@ -298,31 +337,31 @@
         ]
       },
       {
-        "text": "4 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "text": "3 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
         "type": "radio",
         "answers": [
           {
-            "text": "answer 4-1"
+            "text": "answer 3-1"
           },
           {
-            "text": "answer 4-2"
+            "text": "answer 3-2"
           },
           {
-            "text": "answer 4-3"
+            "text": "answer 3-3"
           },
           {
-            "text": "answer 4-4"
+            "text": "answer 3-4"
           },
           {
-            "text": "answer 4-5"
+            "text": "answer 3-5"
           },
           {
-            "text": "answer 4-6"
+            "text": "answer 3-6"
           }
         ]
       },
       {
-        "text": "4 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "text": "5 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
         "type": "radio",
         "answers": [
           {
@@ -415,6 +454,45 @@
           {
             "text": "answer 7-6"
           }
+        ]
+      }
+    ],
+        "answers": [
+      {
+        "questionIndex": 0,
+        "questionAnswer": [
+          0
+        ]
+      },
+      {
+        "questionIndex": 1,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 2,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 3,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 4,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 5,
+        "questionAnswer": [
+          0
+        ]
+      },{
+        "questionIndex": 6,
+        "questionAnswer": [
+          0
         ]
       }
     ]

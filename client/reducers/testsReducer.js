@@ -7,6 +7,7 @@ const testsReducer = (
       questionIndex: 0,
       currentTestId: null,
       testAnswers: [],
+      testResult: null,
     },
     action
   ) => {
@@ -75,7 +76,15 @@ const testsReducer = (
           {},
           state,
           {
-            testAnswers: state.testAnswers.concat(action.answer)
+            testAnswers: state.testAnswers.concat(action.answer),
+          }
+        );
+      case 'TEST_ANSWERS_ARE_CHECKED' :
+        return Object.assign(
+          {},
+          state,
+          {
+            testResult: action.testResult,
           }
         );
       default :

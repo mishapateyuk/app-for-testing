@@ -44,8 +44,8 @@ export const loadTestQuestions = id => dispatch => {
     );
 };
 
-export const checkAnswers = answers => dispatch => {
-  axios.post('/api/check-answers', answers)
+export const checkAnswers = (answers, id, userName) => dispatch => {
+  axios.post('/api/check-answers', {answers, id, userName})
     .then(
       result => dispatch({
         type: testAnswersAreChecked,

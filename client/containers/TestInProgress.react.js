@@ -6,6 +6,7 @@ import {loadTestQuestions, loadTestPreview} from '../actions/testsActionCreators
 import TimerBar from '../components/TimerBar.react';
 import QuestionText from '../components/QuestionText.react';
 import Answers from '../components/Answers.react';
+import QuestionNumber from '../components/QuestionNumber.react';
 import {clearCurrentTestInfo} from '../constants/constants';
 
 const mapDispatchToProps = dispatch => ({
@@ -18,6 +19,7 @@ const mapStateToProps = ({testsInfo, userInfo}) => ({
   testPreviewInfo: testsInfo.testPreviewInfo,
   currentTestId: testsInfo.currentTestId,
   userName: userInfo.userName,
+  questionNumber: testsInfo.questionIndex,
 });
 
 class TestInProgress extends React.PureComponent {
@@ -37,6 +39,10 @@ class TestInProgress extends React.PureComponent {
       <div className="marketing">
         <QuestionText />
         <Answers />
+        <QuestionNumber
+          questionNumber={this.props.questionNumber + 1}
+          questionsCount={this.props.testPreviewInfo.questionsCount}
+        />
         <TimerBar currentTestId={this.id} />
       </div>;
   };
@@ -45,7 +51,11 @@ class TestInProgress extends React.PureComponent {
 TestInProgress.propTypes = {
   loadQuestions: PropTypes.func.isRequired,
   loadPreviewInfo: PropTypes.func.isRequired,
-  testInfo: PropTypes.object,
+  clearCurrentTestInfo: PropTypes.func.isRequired,
+  testPreviewInfo: PropTypes.object,
+  userName: PropTypes.string,
+  currentTestId: PropTypes.string,
+  questionNumber: PropTypes.number,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestInProgress);

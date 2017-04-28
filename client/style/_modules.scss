@@ -112,3 +112,28 @@ body {
 .btn {
   margin-right: 10px;
 }
+
+.test-result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.questions-progress {
+  position: fixed;
+  top: 100px;
+  left: 30px;
+  width: 70px;
+  height: 70px;
+  padding: 0 10px;
+  text-align: center;
+  line-height: 70px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 20px;
+  border: 2px solid black;
+}
