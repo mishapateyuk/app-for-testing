@@ -79,6 +79,14 @@ const testsReducer = (
             testAnswers: state.testAnswers.concat(action.answer),
           }
         );
+        case 'CLEAR_TEST_ANSWERS' :
+        return Object.assign(
+          {},
+          state,
+          {
+            testAnswers: [],
+          }
+        );
       case 'TEST_ANSWERS_ARE_CHECKED' :
         return Object.assign(
           {},

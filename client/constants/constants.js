@@ -11,6 +11,8 @@ export const cleartestQuestions = 'CLEAR_TEST_QUESTIONS';
 
 export const answerTheQuestion = 'ANSWER_THE_QUESTION';
 
+export const clearTetsAnswers = 'CLEAR_TEST_ANSWERS';
+
 export const testAnswersAreChecked = 'TEST_ANSWERS_ARE_CHECKED';
 
 export const setUserName = 'SET_USERNAME';

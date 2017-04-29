@@ -13,8 +13,6 @@ export const loadTestsDescriptions = () => dispatch => {
         type: testsDescriptionsAreLoaded,
         testsDescriptions: result.data,
       })
-    ).catch(
-      //REDIRECT TO ERROR PAGE
     );
 };
 
@@ -25,9 +23,6 @@ export const loadTestPreview = id => dispatch => {
         type: testPreviewInformationIsLoaded,
         testPreviewInfo: result.data,
       })
-    )
-    .catch(
-      //REDIRECT TO ERROR PAGE
     );
 };
 
@@ -38,9 +33,6 @@ export const loadTestQuestions = id => dispatch => {
         type: testQuestionsAreLoaded,
         testQuestions: result.data,
       })
-    )
-    .catch(
-      //REDIRECT TO ERROR PAGE
     );
 };
 

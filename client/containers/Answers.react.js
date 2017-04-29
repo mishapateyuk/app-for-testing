@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {markdown} from 'markdown';
 import {connect} from 'react-redux';
 import uuidV4Js from 'uuid-v4.js';
-import Markdown from './Markdown.react';
+import Markdown from '../components/Markdown.react';
 import {
   changeQuestionIndex,
   answerTheQuestion as answerTheQuestionConstant

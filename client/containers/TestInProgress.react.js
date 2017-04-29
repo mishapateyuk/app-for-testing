@@ -5,14 +5,15 @@ import UserRegistrationForm from './UserRegistrationForm.react';
 import {loadTestQuestions, loadTestPreview} from '../actions/testsActionCreators';
 import TimerBar from '../components/TimerBar.react';
 import QuestionText from '../components/QuestionText.react';
-import Answers from '../components/Answers.react';
+import Answers from './Answers.react';
 import QuestionNumber from '../components/QuestionNumber.react';
-import {clearCurrentTestInfo} from '../constants/constants';
+import {clearCurrentTestInfo, clearTetsAnswers} from '../constants/constants';
 
 const mapDispatchToProps = dispatch => ({
   loadQuestions: id => dispatch(loadTestQuestions(id)),
   loadPreviewInfo: id => dispatch(loadTestPreview(id)),
   clearCurrentTestInfo: () => dispatch({type: clearCurrentTestInfo}),
+  clearTetsAnswers: () => dispatch({type: clearTetsAnswers}),
 });
 
 const mapStateToProps = ({testsInfo, userInfo}) => ({
@@ -27,6 +28,7 @@ class TestInProgress extends React.PureComponent {
     super(props);
     this.id = this.props.match.params.id;
     this.props.clearCurrentTestInfo();
+    this.props.clearTetsAnswers();
     this.props.loadQuestions(this.id);
     if (!this.props.testPreviewInfo) {
       this.props.loadPreviewInfo(this.id);
@@ -52,6 +54,7 @@ TestInProgress.propTypes = {
   loadQuestions: PropTypes.func.isRequired,
   loadPreviewInfo: PropTypes.func.isRequired,
   clearCurrentTestInfo: PropTypes.func.isRequired,
+  clearTetsAnswers: PropTypes.func.isRequired,
   testPreviewInfo: PropTypes.object,
   userName: PropTypes.string,
   currentTestId: PropTypes.string,
