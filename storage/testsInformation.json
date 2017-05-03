@@ -1,31 +1,31 @@
 {
   "b84adad4-6ebb-48e4-a652-a0d5a09c1ca4": {
     "name": "JavaScript",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos natus dignissimos dolorem quisquam praesentium voluptatum, beatae sunt tenetur quam repudiandae repellat quis minus, ipsam ratione at illo amet tempora.",
-    "questionsCount": "7",
+    "description": "Test from website W3Schools",
+    "questionsCount": "15",
     "time": "10 min",
-    "level": "Beginner",
-    "stars": "1",
+    "level": "Intermediate",
+    "stars": "3",
     "topUsers": [
       {
         "name": "AwesomeName-1",
-        "score": 99
+        "score": 25
       },
       {
         "name": "AwesomeName-2",
-        "score": 96
+        "score": 24
       },
       {
         "name": "AwesomeName-3",
-        "score": 95
+        "score": 23
       },
       {
         "name": "AwesomeName-4",
-        "score": 94
+        "score": 22
       },
       {
         "name": "AwesomeName-5",
-        "score": 93
+        "score": 21
       }
     ],
     "testTopics": [
@@ -40,621 +40,461 @@
     ],
     "questions": [
       {
-        "text": "1 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "id" : "001bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "Inside which HTML element do we put the __JavaScript__?",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "```<script>```",
+            "id" : "50b43ca6-4d61-000d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```<js>```",
+            "id" : "50b43ca6-4d61-001d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```<scripting>```",
+            "id" : "50b43ca6-4d61-002d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```<javascript>```",
+            "id" : "50b43ca6-4d61-003d-ac25-bc81ad4b037c"
+          }
+        ]
+      },
+      {
+        "id" : "002bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "What is the correct __JavaScript__ syntax to change the content of the HTML element below? \n\n```<p id=\"demo\">This is a demonstration.</p>```",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "```document.getElementById(\"demo\").innerHTML = \"Hello World!\";```",
+            "id" : "50b43ca6-4d61-004d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```#demo.innerHTML = \"Hello World!\";```",
+            "id" : "50b43ca6-4d61-005d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```document.getElement(\"p\").innerHTML = \"Hello World!\";```",
+            "id" : "50b43ca6-4d61-006d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```document.getElementByName(\"p\").innerHTML = \"Hello World!\";```",
+            "id" : "50b43ca6-4d61-007d-ac25-bc81ad4b037c"
+          }
+        ]
+      },
+      {
+        "id" : "003bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "Where is the correct place to insert a __JavaScript__?",
+        "type": "radio",
+        "answers": [
+          {
+            "text" : "Both the ```<head>``` section and the ```<body>``` section are correct",
+            "id" : "50b43ca6-4d61-008d-ac25-bc81ad4b037c"
+          },
+          {
+            "text" : "The ```<body>``` section",
+            "id" : "50b43ca6-4d61-009d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": " The ```<head>``` section",
+            "id" : "50b43ca6-4d61-010d-ac25-bc81ad4b037c"
+          }
+        ]
+      },
+      {
+        "id" : "004bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "What is the correct syntax for referring to an external script called __\"xxx.js\"___?",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "```<script href=\"xxx.js\">```",
+            "id" : "50b43ca6-4d61-011d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```<script src=\"xxx.js\">```",
+            "id" : "50b43ca6-4d61-012d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```<script name=\"xxx.js\">```",
+            "id" : "50b43ca6-4d61-013d-ac25-bc81ad4b037c"
+          }
+        ]
+      },
+      {
+        "id" : "005bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "The external JavaScript file must contain the ```<script>``` tag.",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "True",
+            "id" : "50b43ca6-4d61-014d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "False",
+            "id" : "50b43ca6-4d61-015d-ac25-bc81ad4b037c"
+          }
+        ]
+      },
+      {
+        "id" : "006bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "How do you write __\"Hello World\"___ in an alert box?",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "```msg(\"Hello World\");```",
+            "id" : "50b43ca6-4d61-016d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```alertBox(\"Hello World\");```",
+            "id" : "50b43ca6-4d61-017d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```alert(\"Hello World\");```",
+            "id" : "50b43ca6-4d61-018d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```msgBox(\"Hello World\");```",
+            "id" : "50b43ca6-4d61-019d-ac25-bc81ad4b037c"
+          }
+        ]
+      },
+      {
+        "id" : "007bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "How do you call a function named __\"myFunction\"__?",
         "type": "checkbox",
         "answers": [
           {
-            "text": "answer 1-1"
+            "text": "```call myFunction()```",
+            "id" : "50b43ca6-4d61-020d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 1-2"
+            "text": "```myFunction()```",
+            "id" : "50b43ca6-4d61-021d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 1-3"
+            "text": "```call function myFunction()```",
+            "id" : "50b43ca6-4d61-022d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 1-4"
+            "text": "```myFunction.call()```",
+            "id" : "50b43ca6-4d61-023d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 1-5"
-          },
-          {
-            "text": "answer 1-6"
+            "text": "```myFunction.apply()```",
+            "id" : "50b43ca6-4d61-024d-ac25-bc81ad4b037c"
           }
         ]
       },
       {
-        "text": "2 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "id" : "008bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "How to write an __IF__ statement in __JavaScript__?",
         "type": "radio",
         "answers": [
           {
-            "text": "answer 2-1"
+            "text": "```if i = 5 then```",
+            "id" : "50b43ca6-4d61-025d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 2-2"
+            "text": "```if i = 5```",
+            "id" : "50b43ca6-4d61-026d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 2-3"
+            "text": "```if (i == 5)```",
+            "id" : "50b43ca6-4d61-026d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 2-4"
+            "text": "```if i == 5 then```",
+            "id" : "50b43ca6-4d61-027d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 2-5"
-          },
-          {
-            "text": "answer 2-6"
+            "text": "```(if i == 5)```",
+            "id" : "50b43ca6-4d61-028d-ac25-bc81ad4b037c"
           }
         ]
       },
       {
-        "text": "3 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "id" : "009bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "How does a __WHILE__ loop start?",
         "type": "radio",
         "answers": [
           {
-            "text": "answer 3-1"
+            "text": "```while (i <= 10; i++)```",
+            "id" : "50b43ca6-4d61-029d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 3-2"
+            "text": "```while i = 1 to 10```",
+            "id" : "50b43ca6-4d61-030d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 3-3"
+            "text": "```while (i <= 10)```",
+            "id" : "50b43ca6-4d61-031d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 3-4"
+            "text": "```while (i <= 10) do```",
+            "id" : "50b43ca6-4d61-032d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 3-5"
-          },
-          {
-            "text": "answer 3-6"
+            "text": "```(while i <= 10) ()```",
+            "id" : "50b43ca6-4d61-033d-ac25-bc81ad4b037c"
           }
         ]
       },
       {
-        "text": "4 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
-        "type": "radio",
+        "id" : "010bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "How does a __FOR__ loop start?",
+        "type": "checkbox",
         "answers": [
           {
-            "text": "answer 4-1"
+            "text": "```for (i = 0; i <= 5)```",
+            "id" : "50b43ca6-4d61-034d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 4-2"
+            "text": "```for (i <= 5; i++)```",
+            "id" : "50b43ca6-4d61-035d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 4-3"
+            "text": "```for (i = 0; i <= 5; i++)```",
+            "id" : "50b43ca6-4d61-036d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 4-4"
+            "text": "```for i = 1 to 5```",
+            "id" : "50b43ca6-4d61-037d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 4-5"
-          },
-          {
-            "text": "answer 4-6"
+            "text": "```for ( ; ; )```",
+            "id" : "50b43ca6-4d61-038d-ac25-bc81ad4b037c"
           }
         ]
       },
       {
-        "text": "5 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "id" : "011bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "How can you add a __comment__ in a __JavaScript__?",
         "type": "radio",
         "answers": [
           {
-            "text": "answer 5-1"
+            "text": "```//This is a comment```",
+            "id" : "50b43ca6-4d61-039d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 5-2"
+            "text": "```<!--This is a comment-->```",
+            "id" : "50b43ca6-4d61-040d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 5-3"
+            "text": "```'This is a comment```",
+            "id" : "50b43ca6-4d61-041d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 5-4"
-          },
-          {
-            "text": "answer 5-5"
-          },
-          {
-            "text": "answer 5-6"
+            "text": "```\"\"This is a comment\"\"```",
+            "id" : "50b43ca6-4d61-042d-ac25-bc81ad4b037c"
           }
         ]
       },
       {
-        "text": "6 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "id" : "012bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "What is the correct way to write a __JavaScript array__?",
         "type": "radio",
         "answers": [
           {
-            "text": "answer 6-1"
+            "text": "```var colors = (1:'red', 2:'green', 3:'blue')```",
+            "id" : "50b43ca6-4d61-043d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 6-2"
+            "text": "``` var colors = 'red', 'green', 'blue'```",
+            "id" : "50b43ca6-4d61-044d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 6-3"
+            "text": "```var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')```",
+            "id" : "50b43ca6-4d61-045d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 6-4"
+            "text": "```var colors = ['red', 'green', 'blue']```",
+            "id" : "50b43ca6-4d61-046d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 6-5"
-          },
-          {
-            "text": "answer 6-6"
+            "text": "```var colors = {1:'red', 2:'green', 3:'blue'}```",
+            "id" : "50b43ca6-4d61-047d-ac25-bc81ad4b037c"
           }
         ]
       },
       {
-        "text": "7 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
+        "id" : "013bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "How do you find the number with the highest value of x and y?",
         "type": "radio",
         "answers": [
           {
-            "text": "answer 7-1"
+            "text": "```ceil(x, y)```",
+            "id" : "50b43ca6-4d61-048d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 7-2"
+            "text": "```Math.ceil(x, y)```",
+            "id" : "50b43ca6-4d61-049d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 7-3"
+            "text": "```top(x, y)```",
+            "id" : "50b43ca6-4d61-050d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 7-4"
+            "text": "```Math.top(x, y)```",
+            "id" : "50b43ca6-4d61-051d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 7-5"
+            "text": "```max(x, y)```",
+            "id" : "50b43ca6-4d61-052d-ac25-bc81ad4b037c"
           },
           {
-            "text": "answer 7-6"
+            "text": "```Math.max(x, y)```",
+            "id" : "50b43ca6-4d61-053d-ac25-bc81ad4b037c"
+          }
+        ]
+      },
+      {
+        "id" : "014bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "What is the correct JavaScript syntax for opening a new window called \"w2\" ?",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "```w2 = window.new(\"http://www.w3schools.com\");```",
+            "id" : "50b43ca6-4d61-054d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```w2 = window.open(\"http://www.w3schools.com\");```",
+            "id" : "50b43ca6-4d61-055d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```w2 = new Window(\"http://www.w3schools.com\");```",
+            "id" : "50b43ca6-4d61-056d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```w2 = window.redirect(\"http://www.w3schools.com\");```",
+            "id" : "50b43ca6-4d61-057d-ac25-bc81ad4b037c"
+          }
+        ]
+      },
+      {
+        "id" : "015bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "What will the following code return: ```Boolean(~~10.3 > 10.2)```",
+        "type": "radio",
+        "answers": [
+          {
+            "text": "```NaN```",
+            "id" : "50b43ca6-4d61-058d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```null```",
+            "id" : "50b43ca6-4d61-059d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```undefined```",
+            "id" : "50b43ca6-4d61-060d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```true```",
+            "id" : "50b43ca6-4d61-061d-ac25-bc81ad4b037c"
+          },
+          {
+            "text": "```false```",
+            "id" : "50b43ca6-4d61-062d-ac25-bc81ad4b037c"
           }
         ]
       }
     ],
     "answers": [
       {
-        "questionIndex": 0,
+        "questionId": "001bb665-842e-4976-9dd0-d0ba5021cb64",
         "questionAnswer": [
-          0
+          "50b43ca6-4d61-000d-ac25-bc81ad4b037c"
         ]
       },
       {
-        "questionIndex": 1,
+        "questionId": "002bb665-842e-4976-9dd0-d0ba5021cb64",
         "questionAnswer": [
-          0
+          "50b43ca6-4d61-004d-ac25-bc81ad4b037c"
         ]
-      },{
-        "questionIndex": 2,
+      },
+      {
+        "questionId": "003bb665-842e-4976-9dd0-d0ba5021cb64",
         "questionAnswer": [
-          0
+          "50b43ca6-4d61-008d-ac25-bc81ad4b037c"
         ]
-      },{
-        "questionIndex": 3,
+      },
+      {
+        "questionId": "004bb665-842e-4976-9dd0-d0ba5021cb64",
         "questionAnswer": [
-          0
+          "50b43ca6-4d61-012d-ac25-bc81ad4b037c"
         ]
-      },{
-        "questionIndex": 4,
+      },
+      {
+        "questionId": "005bb665-842e-4976-9dd0-d0ba5021cb64",
         "questionAnswer": [
-          0
+          "50b43ca6-4d61-014d-ac25-bc81ad4b037c"
         ]
-      },{
-        "questionIndex": 5,
+      },
+      {
+        "questionId": "006bb665-842e-4976-9dd0-d0ba5021cb64",
         "questionAnswer": [
-          0
+          "50b43ca6-4d61-018d-ac25-bc81ad4b037c"
         ]
-      },{
-        "questionIndex": 6,
+      },
+      {
+        "questionId": "007bb665-842e-4976-9dd0-d0ba5021cb64",
         "questionAnswer": [
-          0
+          "50b43ca6-4d61-021d-ac25-bc81ad4b037c",
+          "50b43ca6-4d61-023d-ac25-bc81ad4b037c",
+          "50b43ca6-4d61-024d-ac25-bc81ad4b037c"
+        ]
+      },
+      {
+        "questionId": "008bb665-842e-4976-9dd0-d0ba5021cb64",
+        "questionAnswer": [
+          "50b43ca6-4d61-026d-ac25-bc81ad4b037c"
+        ]
+      },
+      {
+        "questionId": "009bb665-842e-4976-9dd0-d0ba5021cb64",
+        "questionAnswer": [
+          "50b43ca6-4d61-031d-ac25-bc81ad4b037c"
+        ]
+      },
+      {
+        "questionId": "010bb665-842e-4976-9dd0-d0ba5021cb64",
+        "questionAnswer": [
+          "50b43ca6-4d61-036d-ac25-bc81ad4b037c",
+          "50b43ca6-4d61-038d-ac25-bc81ad4b037c"
+        ]
+      },
+      {
+        "questionId": "011bb665-842e-4976-9dd0-d0ba5021cb64",
+        "questionAnswer": [
+          "50b43ca6-4d61-039d-ac25-bc81ad4b037c"
+        ]
+      },
+      {
+        "questionId": "012bb665-842e-4976-9dd0-d0ba5021cb64",
+        "questionAnswer": [
+          "50b43ca6-4d61-046d-ac25-bc81ad4b037c"
+        ]
+      },
+      {
+        "questionId": "013bb665-842e-4976-9dd0-d0ba5021cb64",
+        "questionAnswer": [
+          "50b43ca6-4d61-053d-ac25-bc81ad4b037c"
+        ]
+      },
+      {
+        "questionId": "014bb665-842e-4976-9dd0-d0ba5021cb64",
+        "questionAnswer": [
+          "50b43ca6-4d61-055d-ac25-bc81ad4b037c"
+        ]
+      },
+      {
+        "questionId": "015bb665-842e-4976-9dd0-d0ba5021cb64",
+        "questionAnswer": [
+          "50b43ca6-4d61-062d-ac25-bc81ad4b037c"
         ]
       }
-    ]
-  },
-  "364bb665-842e-4976-9dd0-d0ba5021cb64": {
-    "name": "JavaScript",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos natus dignissimos dolorem quisquam praesentium voluptatum, beatae sunt tenetur quam repudiandae repellat quis minus, ipsam ratione at illo amet tempora.",
-    "questionsCount": "7",
-    "time": "1 min",
-    "level": "Middle",
-    "stars": "2",
-    "topUsers": [
-      {
-        "name": "AwesomeName-1",
-        "score": 49
-      },
-      {
-        "name": "AwesomeName-2",
-        "score": 46
-      },
-      {
-        "name": "AwesomeName-3",
-        "score": 45
-      },
-      {
-        "name": "AwesomeName-4",
-        "score": 44
-      },
-      {
-        "name": "AwesomeName-5",
-        "score": 43
-      }
-    ],
-    "testTopics": [
-      "Numbers",
-      "Arrays",
-      "AJAX",
-      "Object",
-      "Bitwise operation",
-      "ES6",
-      "DOM elements",
-      "DOM Events"
-    ],
-    "questions": [
-      {
-        "text": "1 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
-        "type": "checkbox",
-        "answers": [
-          {
-            "text": "answer 1-1"
-          },
-          {
-            "text": "answer 1-2"
-          },
-          {
-            "text": "answer 1-3"
-          },
-          {
-            "text": "answer 1-4"
-          },
-          {
-            "text": "answer 1-5"
-          },
-          {
-            "text": "answer 1-6"
-          }
-        ]
-      },
-      {
-        "text": "2 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
-        "type": "radio",
-        "answers": [
-          {
-            "text": "answer 2-1"
-          },
-          {
-            "text": "answer 2-2"
-          },
-          {
-            "text": "answer 2-3"
-          },
-          {
-            "text": "answer 2-4"
-          },
-          {
-            "text": "answer 2-5"
-          },
-          {
-            "text": "answer 2-6"
-          }
-        ]
-      },
-      {
-        "text": "3 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
-        "type": "radio",
-        "answers": [
-          {
-            "text": "answer 3-1"
-          },
-          {
-            "text": "answer 3-2"
-          },
-          {
-            "text": "answer 3-3"
-          },
-          {
-            "text": "answer 3-4"
-          },
-          {
-            "text": "answer 3-5"
-          },
-          {
-            "text": "answer 3-6"
-          }
-        ]
-      },
-      {
-        "text": "5 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
-        "type": "radio",
-        "answers": [
-          {
-            "text": "answer 4-1"
-          },
-          {
-            "text": "answer 4-2"
-          },
-          {
-            "text": "answer 4-3"
-          },
-          {
-            "text": "answer 4-4"
-          },
-          {
-            "text": "answer 4-5"
-          },
-          {
-            "text": "answer 4-6"
-          }
-        ]
-      },
-      {
-        "text": "5 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
-        "type": "radio",
-        "answers": [
-          {
-            "text": "answer 5-1"
-          },
-          {
-            "text": "answer 5-2"
-          },
-          {
-            "text": "answer 5-3"
-          },
-          {
-            "text": "answer 5-4"
-          },
-          {
-            "text": "answer 5-5"
-          },
-          {
-            "text": "answer 5-6"
-          }
-        ]
-      },
-      {
-        "text": "6 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
-        "type": "radio",
-        "answers": [
-          {
-            "text": "answer 6-1"
-          },
-          {
-            "text": "answer 6-2"
-          },
-          {
-            "text": "answer 6-3"
-          },
-          {
-            "text": "answer 6-4"
-          },
-          {
-            "text": "answer 6-5"
-          },
-          {
-            "text": "answer 6-6"
-          }
-        ]
-      },
-      {
-        "text": "7 QUESTION [link to Google!](http://google.com) 2nd paragraph. *Italic*, **bold**, and `monospace`.",
-        "type": "radio",
-        "answers": [
-          {
-            "text": "answer 7-1"
-          },
-          {
-            "text": "answer 7-2"
-          },
-          {
-            "text": "answer 7-3"
-          },
-          {
-            "text": "answer 7-4"
-          },
-          {
-            "text": "answer 7-5"
-          },
-          {
-            "text": "answer 7-6"
-          }
-        ]
-      }
-    ],
-        "answers": [
-      {
-        "questionIndex": 0,
-        "questionAnswer": [
-          0
-        ]
-      },
-      {
-        "questionIndex": 1,
-        "questionAnswer": [
-          0
-        ]
-      },{
-        "questionIndex": 2,
-        "questionAnswer": [
-          0
-        ]
-      },{
-        "questionIndex": 3,
-        "questionAnswer": [
-          0
-        ]
-      },{
-        "questionIndex": 4,
-        "questionAnswer": [
-          0
-        ]
-      },{
-        "questionIndex": 5,
-        "questionAnswer": [
-          0
-        ]
-      },{
-        "questionIndex": 6,
-        "questionAnswer": [
-          0
-        ]
-      }
-    ]
-  },
-  "50b43ca6-4d61-447d-ac25-bc81ad4b037c": {
-    "name": "JavaScript",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos natus dignissimos dolorem quisquam praesentium voluptatum, beatae sunt tenetur quam repudiandae repellat quis minus, ipsam ratione at illo amet tempora.",
-    "questionsCount": "100",
-    "time": "1 min",
-    "level": "Advanced",
-    "stars": "5",
-    "topUsers": [
-      {
-        "name": "AwesomeName-1",
-        "score": 99
-      },
-      {
-        "name": "AwesomeName-2",
-        "score": 96
-      },
-      {
-        "name": "AwesomeName-3",
-        "score": 95
-      },
-      {
-        "name": "AwesomeName-4",
-        "score": 94
-      },
-      {
-        "name": "AwesomeName-5",
-        "score": 93
-      }
-    ],
-    "testTopics": [
-      "Numbers",
-      "Arrays",
-      "AJAX",
-      "Object",
-      "Bitwise operation",
-      "ES6",
-      "DOM elements",
-      "DOM Events"
-    ]
-  },
-  "4884b927-a441-4b99-9c71-baa085b33335": {
-    "name": "HTML/CSS",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos natus dignissimos dolorem quisquam praesentium voluptatum, beatae sunt tenetur quam repudiandae repellat quis minus, ipsam ratione at illo amet tempora.",
-    "questionsCount": "100",
-    "time": "1 min",
-    "level": "Beginner",
-    "stars": "1",
-    "topUsers": [
-      {
-        "name": "AwesomeName-1",
-        "score": 99
-      },
-      {
-        "name": "AwesomeName-2",
-        "score": 96
-      },
-      {
-        "name": "AwesomeName-3",
-        "score": 95
-      },
-      {
-        "name": "AwesomeName-4",
-        "score": 94
-      },
-      {
-        "name": "AwesomeName-5",
-        "score": 93
-      }
-    ],
-    "testTopics": [
-      "Numbers",
-      "Arrays",
-      "AJAX",
-      "Object",
-      "Bitwise operation",
-      "ES6",
-      "DOM elements",
-      "DOM Events"
-    ]
-  },
-  "9682557d-7026-421d-b2d1-a37c4258812d": {
-    "name": "HTML/CSS",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos natus dignissimos dolorem quisquam praesentium voluptatum, beatae sunt tenetur quam repudiandae repellat quis minus, ipsam ratione at illo amet tempora.",
-    "questionsCount": "100",
-    "time": "1 min",
-    "level": "Middle",
-    "stars": "3",
-    "topUsers": [
-      {
-        "name": "AwesomeName-1",
-        "score": 99
-      },
-      {
-        "name": "AwesomeName-2",
-        "score": 96
-      },
-      {
-        "name": "AwesomeName-3",
-        "score": 95
-      },
-      {
-        "name": "AwesomeName-4",
-        "score": 94
-      },
-      {
-        "name": "AwesomeName-5",
-        "score": 93
-      }
-    ],
-    "testTopics": [
-      "Numbers",
-      "Arrays",
-      "AJAX",
-      "Object",
-      "Bitwise operation",
-      "ES6",
-      "DOM elements",
-      "DOM Events"
-    ]
-  },
-  "a2b21b33-2084-41aa-b989-a3ba0d37d284": {
-    "name": "HTML/CSS",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos natus dignissimos dolorem quisquam praesentium voluptatum, beatae sunt tenetur quam repudiandae repellat quis minus, ipsam ratione at illo amet tempora.",
-    "questionsCount": "100",
-    "time": "1 min",
-    "level": "Advanced",
-    "stars": "4",
-    "topUsers": [
-      {
-        "name": "AwesomeName-1",
-        "score": 99
-      },
-      {
-        "name": "AwesomeName-2",
-        "score": 96
-      },
-      {
-        "name": "AwesomeName-3",
-        "score": 95
-      },
-      {
-        "name": "AwesomeName-4",
-        "score": 94
-      },
-      {
-        "name": "AwesomeName-5",
-        "score": 93
-      }
-    ],
-    "testTopics": [
-      "Numbers",
-      "Arrays",
-      "AJAX",
-      "Object",
-      "Bitwise operation",
-      "ES6",
-      "DOM elements",
-      "DOM Events"
     ]
   }
 }
