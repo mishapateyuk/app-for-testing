@@ -4,16 +4,21 @@ import {startTest, clearCurrentTestInfo} from '../constants/constants';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router';
 
-const mapStateToProps = ({testsInfo}) => ({
+const mapStateToProps = ({testsInfo, testInProgress}) => ({
   testTime: testsInfo.testPreviewInfo.time,
-  testInitialTime: testsInfo.testInitialTime,
+  questions: testsInfo.testQuestions,
+  testInitialTime: testInProgress.testInitialTime,
 });
 
 const mapDispatchToProps = dispatch => ({
-  startTest: currentTestId => dispatch({
+  startTest: questions => dispatch({
     type: startTest,
     initialTime: new Date().valueOf(),
-    currentTestId,
+    testAnswers: questions.map(question => ({
+      id: question.id,
+      state: null,
+      answer: null,
+    }))
   }),
   timeOver: () => dispatch({
     type: clearCurrentTestInfo,
@@ -59,14 +64,14 @@ class TimerBar extends React.PureComponent {
 
   componentDidMount() {
     if (!this.props.testInitialTime) {
-      this.props.startTest(this.props.currentTestId);
+      this.props.startTest(this.props.questions);
     }
     this.interval = setInterval(this.tick.bind(this), 16);
   };
 
   render () {
     return (
-      <div className="progress ">
+      <div className="progress time-bar">
         <span className="progress-time">{this.state.timeRemaining}</span>
         <div
           className="progress-bar progress-bar-striped active"
@@ -83,6 +88,7 @@ TimerBar.propTypes = {
   startTest: PropTypes.func.isRequired,
   timeOver: PropTypes.func.isRequired,
   currentTestId: PropTypes.string,
+  questions: PropTypes.array,
 };
 
 

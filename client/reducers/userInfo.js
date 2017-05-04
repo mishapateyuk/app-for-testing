@@ -1,4 +1,4 @@
-const userReducer = (
+const userInfo = (
     state = {
       userName: null,
     },
@@ -26,4 +26,4 @@ const userReducer = (
   };
 };
 
-export default userReducer;
+export default userInfo;

@@ -4,20 +4,24 @@ import {markdown} from 'markdown';
 import {connect} from 'react-redux';
 import Markdown from './Markdown.react';
 
-const mapStateToProps = ({testsInfo}) => ({
+const mapStateToProps = ({testsInfo, testInProgress}) => ({
   questions: testsInfo.testQuestions,
-  questionIndex: testsInfo.questionIndex,
+  questionId: testInProgress.questionId,
 });
 
-const QuestionText = ({questions, questionIndex}) =>
-  <Markdown
-    className="question-text"
-    html={questions[questionIndex].text}
-  />;
+const QuestionText = ({questions, questionId}) =>
+  questionId === null ?
+    <div /> :
+    <Markdown
+      className="question-text"
+      html={
+        questions.find(question => question.id === questionId).text
+      }
+    />;
 
 QuestionText.propTypes = {
   questions: PropTypes.array.isRequired,
-  questionIndex: PropTypes.number.isRequired,
+  questionId: PropTypes.string,
 };
 
 export default connect(mapStateToProps, null)(QuestionText);

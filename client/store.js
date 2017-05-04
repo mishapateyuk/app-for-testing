@@ -1,5 +1,5 @@
 import {createStore, compose, applyMiddleware} from 'redux';
-import rootReducer from './reducers/rootReducer';
+import root from './reducers/root';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
 
@@ -14,6 +14,6 @@ const enhancer = composeEnhancers(
   applyMiddleware(thunk)
 );
 
-const store = createStore(rootReducer, enhancer);
+const store = createStore(root, enhancer);
 
 export default store;

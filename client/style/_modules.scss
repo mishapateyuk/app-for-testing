@@ -82,11 +82,25 @@ body {
 
 .progress {
   position: fixed;
-  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
   height: 20px;
+}
+
+.time-bar {
+  bottom: 50px;
+}
+
+.question-bar {
+  bottom: 75px;
+}
+
+.question {
+  box-sizing: border-box;
+  display: inline-block;
+  border-left: 1px solid white;
+  height: 100%;
 }
 
 .progress-time {

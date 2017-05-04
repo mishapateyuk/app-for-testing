@@ -6,99 +6,90 @@ import uuidV4Js from 'uuid-v4.js';
 import Markdown from '../components/Markdown.react';
 import {
   changeQuestionIndex,
-  answerTheQuestion as answerTheQuestionConstant
+  setInitialQuestionId
 } from '../constants/constants';
 import {withRouter} from 'react-router';
+import {
+  answerTheQuestion as answerTheQuestionAction,
+  goToNextQuestion as goToNextQuestionAction
+} from '../actions/testsActionCreators';
 
-const mapStateToProps = ({testsInfo}) => ({
+const mapStateToProps = ({testsInfo, testInProgress}) => ({
   questions: testsInfo.testQuestions,
-  questionIndex: testsInfo.questionIndex,
+  questionId: testInProgress.questionId,
+  testAnswers: testInProgress.testAnswers,
 });
 
 const mapDispatchToProps = dispatch => ({
-  answerTheQuestion: answer => dispatch({
-    type: answerTheQuestionConstant,
-    answer,
+  answerTheQuestion: answer => dispatch(answerTheQuestionAction(answer)),
+  goToNextQuestion: (questions, testAnswers) =>dispatch(
+    goToNextQuestionAction(questions, testAnswers)
+  ),
+  setInitialQuestionId: id => dispatch({
+    type: setInitialQuestionId,
+    id,
   }),
-  goToNextQuestion: newIndex => dispatch({
-    type: changeQuestionIndex,
-    newIndex,
-  }),
-  endTest: () => dispatch(),
 });
 
 class Answers extends React.PureComponent {
 
   constructor() {
     super();
-    this.buttonHandler = this.buttonHandler.bind(this);
-    this.inputs = [];
+  };
+
+  componentDidMount() {
+    if (this.props.questionId === null) {
+      this.props.setInitialQuestionId(this.props.questions[0].id);
+    };
   };
 
   buttonHandler(e) {
-    const {
-      goToNextQuestion,
-      history,
-      questionIndex,
-      questions,
-      answerTheQuestion
-    } = this.props;
-    const nextQuestionIndex = Number(questionIndex) + 1;
-    const inputs = this.inputs.filter(input => !!input);
-    const answer = {
-      questionIndex,
-      questionAnswer: inputs.reduce(
-        (acc, input, i) => {
-          if (input.checked) {
-            return acc.concat([i]);
-          };
-          return acc;
-        },
-        []
-      )
-    };
-    answerTheQuestion(answer);
-    return nextQuestionIndex < questions.length ?
-      goToNextQuestion(nextQuestionIndex) :
-      history.push('/test-result');
-  };
-
-  componentWillUpdate() {
-    this.inputs.length = 0;
+    const {goToNextQuestion, questions, testAnswers} = this.props;
+    this.props.goToNextQuestion(questions, testAnswers);
   };
 
   render() {
-    const {questions, questionIndex, goToNextQuestion, history} = this.props;
+    const {questionId, questions} = this.props;
+    const currentQuestion = questions
+      .find(question => question.id === questionId);
     return (
-      <div className="answers">
-        {
-          questions[questionIndex].answers.map(
-            answer =>
-              <div className={questions[questionIndex].type} key={uuidV4Js()}>
-                <label>
-                  <input
-                    type={questions[questionIndex].type}
-                    name="input"
-                    ref={(input) => this.inputs.push(input)}
-                  />
-                  <Markdown html={answer.text} />
-                </label>
-              </div>
-          )
-        }
-        <button className="btn btn-lg btn-success" onClick={this.buttonHandler}>
-          Answer &#8658;
-        </button>
-      </div>
+      questionId === null ?
+        <div /> :
+        <div className="answers" ref={div => {this.answersWrapper = div;}}>
+          {
+            currentQuestion.answers.map(
+              answer =>
+                <div
+                  className={currentQuestion.type}
+                  key={uuidV4Js()}
+                >
+                  <label>
+                    <input
+                      type={currentQuestion.type}
+                      name={answer.id}
+                    />
+                    <Markdown html={answer.text} />
+                  </label>
+                </div>
+            )
+          }
+          <button
+            className="btn btn-lg btn-success"
+            onClick={this.buttonHandler}
+          >
+            Answer &#8658;
+          </button>
+        </div>
     );
   };
 };
 
 Answers.propTypes = {
   questions: PropTypes.array.isRequired,
-  questionIndex: PropTypes.number.isRequired,
+  testAnswers: PropTypes.array.isRequired,
+  questionId: PropTypes.string,
   goToNextQuestion: PropTypes.func.isRequired,
-  endTest: PropTypes.func.isRequired,
+  answerTheQuestion: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Answers));

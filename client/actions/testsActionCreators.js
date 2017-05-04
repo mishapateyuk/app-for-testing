@@ -1,9 +1,10 @@
 import axios from 'axios';
 import {
   testsDescriptionsAreLoaded,
-  testPreviewInformationIsLoaded,
+  testPreviewInfoIsLoaded,
   testQuestionsAreLoaded,
-  testAnswersAreChecked
+  testAnswersAreChecked,
+  changeQuestionId
 } from '../constants/constants';
 
 export const loadTestsDescriptions = () => dispatch => {
@@ -20,7 +21,7 @@ export const loadTestPreview = id => dispatch => {
   axios.get(`/api/preview-info/${id}`)
     .then(
       result => dispatch({
-        type: testPreviewInformationIsLoaded,
+        type: testPreviewInfoIsLoaded,
         testPreviewInfo: result.data,
       })
     );
@@ -44,4 +45,24 @@ export const checkAnswers = (answers, id, userName) => dispatch => {
         testResult: result.data,
       })
     );
+};
+
+export const answerTheQuestion = (answer, id) => dispatch => {
+  axios.post('/api/check-question-answer', {answer, id})
+    .then(
+      result => dispatch({
+        type: testAnswersAreChecked,
+        testResult: result.data,
+      })
+    );
+};
+
+export const goToNextQuestion = () => dispatch => {
+
+  const newId = 0;
+
+  dispatch({
+  type: changeQuestionId,
+  newId,
+  });
 };

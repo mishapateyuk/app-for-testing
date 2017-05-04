@@ -4,23 +4,27 @@ import {connect} from 'react-redux';
 import UserRegistrationForm from './UserRegistrationForm.react';
 import {loadTestQuestions, loadTestPreview} from '../actions/testsActionCreators';
 import TimerBar from '../components/TimerBar.react';
+import QuestionsBar from '../components/QuestionsBar.react';
 import QuestionText from '../components/QuestionText.react';
 import Answers from './Answers.react';
-import QuestionNumber from '../components/QuestionNumber.react';
-import {clearCurrentTestInfo, clearTetsAnswers} from '../constants/constants';
+import {
+  clearCurrentTestInfo,
+  clearTetsAnswers,
+  clearTestQuestions
+} from '../constants/constants';
 
 const mapDispatchToProps = dispatch => ({
   loadQuestions: id => dispatch(loadTestQuestions(id)),
   loadPreviewInfo: id => dispatch(loadTestPreview(id)),
   clearCurrentTestInfo: () => dispatch({type: clearCurrentTestInfo}),
   clearTetsAnswers: () => dispatch({type: clearTetsAnswers}),
+  clearTestQuestions: () => dispatch({type: clearTestQuestions}),
 });
 
-const mapStateToProps = ({testsInfo, userInfo}) => ({
+const mapStateToProps = ({testsInfo, userInfo, testInProgress}) => ({
   testPreviewInfo: testsInfo.testPreviewInfo,
-  currentTestId: testsInfo.currentTestId,
   userName: userInfo.userName,
-  questionNumber: testsInfo.questionIndex,
+  questionNumber: testInProgress.questionIndex,
 });
 
 class TestInProgress extends React.PureComponent {
@@ -29,6 +33,7 @@ class TestInProgress extends React.PureComponent {
     this.id = this.props.match.params.id;
     this.props.clearCurrentTestInfo();
     this.props.clearTetsAnswers();
+    this.props.clearTestQuestions();
     this.props.loadQuestions(this.id);
     if (!this.props.testPreviewInfo) {
       this.props.loadPreviewInfo(this.id);
@@ -41,11 +46,8 @@ class TestInProgress extends React.PureComponent {
       <div className="marketing">
         <QuestionText />
         <Answers />
-        <QuestionNumber
-          questionNumber={this.props.questionNumber + 1}
-          questionsCount={this.props.testPreviewInfo.questionsCount}
-        />
-        <TimerBar currentTestId={this.id} />
+        <TimerBar />
+        <QuestionsBar />
       </div>;
   };
 };
@@ -55,9 +57,9 @@ TestInProgress.propTypes = {
   loadPreviewInfo: PropTypes.func.isRequired,
   clearCurrentTestInfo: PropTypes.func.isRequired,
   clearTetsAnswers: PropTypes.func.isRequired,
+  clearTestQuestions: PropTypes.func.isRequired,
   testPreviewInfo: PropTypes.object,
   userName: PropTypes.string,
-  currentTestId: PropTypes.string,
   questionNumber: PropTypes.number,
 };
 
