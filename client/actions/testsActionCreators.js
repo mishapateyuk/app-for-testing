@@ -4,7 +4,10 @@ import {
   testPreviewInfoIsLoaded,
   testQuestionsAreLoaded,
   testAnswersAreChecked,
-  changeQuestionId
+  changeQuestionId,
+  answerTheQuestion as answerTheQuestionConstant,
+  skipTheQuestion as skipTheQuestionConstant,
+  setAnswerResult
 } from '../constants/constants';
 
 export const loadTestsDescriptions = () => dispatch => {
@@ -47,20 +50,31 @@ export const checkAnswers = (answers, id, userName) => dispatch => {
     );
 };
 
-export const answerTheQuestion = (answer, id) => dispatch => {
-  axios.post('/api/check-question-answer', {answer, id})
+export const answerTheQuestion = (questionId, answer, testId) => dispatch => {
+  dispatch({
+    type: answerTheQuestionConstant,
+    questionId,
+    answer
+  });
+  axios.post('/api/check-question-answer', {questionId, answer, testId})
     .then(
       result => dispatch({
-        type: testAnswersAreChecked,
-        testResult: result.data,
+        type: setAnswerResult,
+        questionId,
+        result: result.data,
       })
     );
 };
 
-export const goToNextQuestion = () => dispatch => {
+export const skipTheQuestion = id => dispatch => {
+  dispatch({
+    type: skipTheQuestionConstant,
+    questionId: id,
+  });
+};
 
-  const newId = 0;
-
+export const goToNextQuestion = (skipped, testAnswers) => dispatch => {
+  const newId = testAnswers.find(answer => answer);
   dispatch({
   type: changeQuestionId,
   newId,

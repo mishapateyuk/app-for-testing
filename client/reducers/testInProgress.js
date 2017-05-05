@@ -5,6 +5,7 @@ const testInProgress = (
       currentTestId: null,
       testAnswers: null,
       testResult: null,
+      skipped: [],
     },
     action
   ) => {
@@ -17,6 +18,7 @@ const testInProgress = (
             testInitialTime: action.initialTime,
             currentTestId: action.currentTestId,
             testAnswers: action.testAnswers,
+            skipped: [],
           }
         );
       case 'CLEAR_CURRENT_TEST_INFO' :
@@ -37,11 +39,25 @@ const testInProgress = (
           }
         );
       case 'ANSWER_THE_QUESTION' :
+        const withAnswer = [...state.testAnswers];
+        withAnswer.find(answer => answer.id === action.questionId)
+          .answer = action.answer;
         return Object.assign(
           {},
           state,
           {
-            testAnswers: state.testAnswers.concat(action.answer),
+            testAnswers: withAnswer,
+          }
+        );
+      case 'SET_ANSWER_RESULT' :
+        const withResult = [...state.testAnswers];
+        withResult.find(answer => answer.id === action.questionId)
+          .result = action.result;
+        return Object.assign(
+          {},
+          state,
+          {
+            testAnswers: withResult,
           }
         );
       case 'CLEAR_TEST_ANSWERS' :

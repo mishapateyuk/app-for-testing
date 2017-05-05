@@ -11,12 +11,13 @@ const mapStateToProps = ({testsInfo, testInProgress}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  startTest: questions => dispatch({
+  startTest: (questions, id) => dispatch({
     type: startTest,
+    currentTestId: id,
     initialTime: new Date().valueOf(),
     testAnswers: questions.map(question => ({
       id: question.id,
-      state: null,
+      result: null,
       answer: null,
     }))
   }),
@@ -64,7 +65,7 @@ class TimerBar extends React.PureComponent {
 
   componentDidMount() {
     if (!this.props.testInitialTime) {
-      this.props.startTest(this.props.questions);
+      this.props.startTest(this.props.questions, this.props.match.params.id);
     }
     this.interval = setInterval(this.tick.bind(this), 16);
   };
@@ -87,7 +88,6 @@ TimerBar.propTypes = {
   testInitialTime: PropTypes.number,
   startTest: PropTypes.func.isRequired,
   timeOver: PropTypes.func.isRequired,
-  currentTestId: PropTypes.string,
   questions: PropTypes.array,
 };
 

@@ -11,30 +11,40 @@ import {
 import {withRouter} from 'react-router';
 import {
   answerTheQuestion as answerTheQuestionAction,
-  goToNextQuestion as goToNextQuestionAction
+  goToNextQuestion as goToNextQuestionAction,
+  skipTheQuestion as skipTheQuestionAction
 } from '../actions/testsActionCreators';
 
 const mapStateToProps = ({testsInfo, testInProgress}) => ({
+  testId: testInProgress.currentTestId,
   questions: testsInfo.testQuestions,
   questionId: testInProgress.questionId,
   testAnswers: testInProgress.testAnswers,
+  skipped: testInProgress.skipped,
 });
 
 const mapDispatchToProps = dispatch => ({
-  answerTheQuestion: answer => dispatch(answerTheQuestionAction(answer)),
-  goToNextQuestion: (questions, testAnswers) =>dispatch(
+  answerTheQuestion: (questionId, answer, testId) => dispatch(
+    answerTheQuestionAction(questionId, answer, testId)
+  ),
+  goToNextQuestion: (questions, testAnswers) => dispatch(
     goToNextQuestionAction(questions, testAnswers)
   ),
   setInitialQuestionId: id => dispatch({
     type: setInitialQuestionId,
     id,
   }),
+  skipTheQuestion: id => dispatch(
+    skipTheQuestionAction(id)
+  ),
 });
 
 class Answers extends React.PureComponent {
 
   constructor() {
     super();
+    this.answerHandler = this.answerHandler.bind(this);
+    this.skipHandler = this.skipHandler.bind(this);
   };
 
   componentDidMount() {
@@ -43,9 +53,30 @@ class Answers extends React.PureComponent {
     };
   };
 
-  buttonHandler(e) {
-    const {goToNextQuestion, questions, testAnswers} = this.props;
-    this.props.goToNextQuestion(questions, testAnswers);
+  answerHandler(e) {
+    const {
+      goToNextQuestion,
+      skipped,
+      testAnswers,
+      questionId,
+      answerTheQuestion,
+      testId
+    } = this.props;
+    const inputs = Array.from(
+      this.answersWrapper.getElementsByTagName('input')
+    );
+    const answer = inputs.reduce((acc, curr) => {
+      return curr.checked ?
+        acc.concat([curr.id]) :
+        acc;
+    }, []);
+    answerTheQuestion(questionId, answer, testId);
+    goToNextQuestion(skipped, testAnswers);
+  };
+
+  skipHandler() {
+    const {questionId} = this.props;
+    skipTheQuestion(questionId);
   };
 
   render() {
@@ -66,7 +97,8 @@ class Answers extends React.PureComponent {
                   <label>
                     <input
                       type={currentQuestion.type}
-                      name={answer.id}
+                      id={answer.id}
+                      name="input"
                     />
                     <Markdown html={answer.text} />
                   </label>
@@ -75,9 +107,15 @@ class Answers extends React.PureComponent {
           }
           <button
             className="btn btn-lg btn-success"
-            onClick={this.buttonHandler}
+            onClick={this.answerHandler}
           >
             Answer &#8658;
+          </button>
+          <button
+            className="btn btn-lg btn-warning"
+            onClick={this.skipHandler}
+          >
+            Skip &#8658;
           </button>
         </div>
     );
@@ -85,9 +123,11 @@ class Answers extends React.PureComponent {
 };
 
 Answers.propTypes = {
-  questions: PropTypes.array.isRequired,
-  testAnswers: PropTypes.array.isRequired,
+  questions: PropTypes.array,
+  testAnswers: PropTypes.array,
   questionId: PropTypes.string,
+  testId: PropTypes.string,
+  skipped: PropTypes.array.isRequired,
   goToNextQuestion: PropTypes.func.isRequired,
   answerTheQuestion: PropTypes.func.isRequired,
 };

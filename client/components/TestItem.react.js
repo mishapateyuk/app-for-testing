@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const TestItem = ({details}) => (
   <div className="col-lg-4">
-    <img width="140" height="140" className="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+    <img width="140" height="140" className="img-circle" src="http://nodeframework.com/assets/img/js.png"/>
     <h2>{details.name}</h2>
     <p>{details.description}</p>
     <p>

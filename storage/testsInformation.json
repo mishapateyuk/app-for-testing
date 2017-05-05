@@ -401,100 +401,55 @@
         ]
       }
     ],
-    "answers": [
-      {
-        "questionId": "001bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-000d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "002bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-004d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "003bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-008d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "004bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-012d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "005bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-014d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "006bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-018d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "007bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-021d-ac25-bc81ad4b037c",
-          "50b43ca6-4d61-023d-ac25-bc81ad4b037c",
-          "50b43ca6-4d61-024d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "008bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-026d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "009bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
+    "answers": {
+      "001bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-000d-ac25-bc81ad4b037c"
+      ],
+      "002bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-004d-ac25-bc81ad4b037c"
+      ],
+      "003bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-008d-ac25-bc81ad4b037c"
+      ],
+      "004bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-012d-ac25-bc81ad4b037c"
+      ],
+      "005bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-014d-ac25-bc81ad4b037c"
+      ],
+      "006bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-018d-ac25-bc81ad4b037c"
+      ],
+      "007bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-021d-ac25-bc81ad4b037c",
+        "50b43ca6-4d61-023d-ac25-bc81ad4b037c",
+        "50b43ca6-4d61-024d-ac25-bc81ad4b037c"
+      ],
+      "008bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-026d-ac25-bc81ad4b037c"
+      ],
+      "009bb665-842e-4976-9dd0-d0ba5021cb64" : [
           "50b43ca6-4d61-031d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "010bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-036d-ac25-bc81ad4b037c",
-          "50b43ca6-4d61-038d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "011bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-039d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "012bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-046d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "013bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-053d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "014bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-055d-ac25-bc81ad4b037c"
-        ]
-      },
-      {
-        "questionId": "015bb665-842e-4976-9dd0-d0ba5021cb64",
-        "questionAnswer": [
-          "50b43ca6-4d61-062d-ac25-bc81ad4b037c"
-        ]
-      }
-    ]
+      ],
+      "010bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-036d-ac25-bc81ad4b037c",
+        "50b43ca6-4d61-038d-ac25-bc81ad4b037c"
+      ],
+      "011bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-039d-ac25-bc81ad4b037c"
+      ],
+      "012bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-046d-ac25-bc81ad4b037c"
+      ],
+      "013bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-053d-ac25-bc81ad4b037c"
+      ],
+      "014bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-055d-ac25-bc81ad4b037c"
+      ],
+      "015bb665-842e-4976-9dd0-d0ba5021cb64" : [
+        "50b43ca6-4d61-062d-ac25-bc81ad4b037c"
+      ]
+    }
   }
 }
