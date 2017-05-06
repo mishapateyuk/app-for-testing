@@ -50,30 +50,34 @@ export const checkAnswers = (answers, id, userName) => dispatch => {
     );
 };
 
-export const answerTheQuestion = (currentQuestionId, answer, testId) => dispatch => {
-  dispatch({
-    type: answerTheQuestionConstant,
-    currentQuestionId,
-    answer
-  });
-  axios.post('/api/check-question-answer', {currentQuestionId, answer, testId})
-    .then(
-      result => dispatch({
-        type: setAnswerResult,
-        currentQuestionId,
-        result: result.data,
-      })
-    );
-};
+export const answerTheQuestion = (currentQuestionId, answer, testId) =>
+  dispatch => {
+    dispatch({
+      type: answerTheQuestionConstant,
+      currentQuestionId,
+      answer
+    });
+    axios.post(
+      '/api/check-question-answer',
+      {currentQuestionId, answer, testId}
+    )
+      .then(
+        result => dispatch({
+          type: setAnswerResult,
+          currentQuestionId,
+          result: result.data,
+        })
+      );
+  };
 
 export const skipTheQuestion = id => dispatch => {
   dispatch({
     type: skipTheQuestionConstant,
-    currentQuestionId: id,
+    id,
   });
 };
 
-export const goToNextQuestion = (skipped, testAnswers, history) => dispatch => {
+export const goToNextQuestion = (testAnswers, history) => dispatch => {
   const nextAnswerInfo = testAnswers.find(answer => !answer.answer);
   return nextAnswerInfo ?
     dispatch({type: changeQuestionId, newId: nextAnswerInfo.id}) :

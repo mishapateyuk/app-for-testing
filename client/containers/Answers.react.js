@@ -20,7 +20,6 @@ const mapStateToProps = ({testsInfo, testInProgress}) => ({
   questions: testsInfo.testQuestions,
   currentQuestionId: testInProgress.currentQuestionId,
   testAnswers: testInProgress.testAnswers,
-  skipped: testInProgress.skipped,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -56,7 +55,6 @@ class Answers extends React.PureComponent {
   answerHandler(e) {
     const {
       goToNextQuestion,
-      skipped,
       testAnswers,
       currentQuestionId,
       answerTheQuestion,
@@ -72,12 +70,18 @@ class Answers extends React.PureComponent {
         acc;
     }, []);
     answerTheQuestion(currentQuestionId, answer, testId);
-    goToNextQuestion(skipped, testAnswers, history);
+    goToNextQuestion(testAnswers, history);
   };
 
   skipHandler() {
-    const {currentQuestionId} = this.props;
+    const {
+      history,
+      currentQuestionId,
+      skipTheQuestion,
+      goToNextQuestion
+    } = this.props;
     skipTheQuestion(currentQuestionId);
+    goToNextQuestion(this.props.testAnswers, history);
   };
 
   render() {
@@ -128,7 +132,6 @@ Answers.propTypes = {
   testAnswers: PropTypes.array,
   currentQuestionId: PropTypes.string,
   testId: PropTypes.string,
-  skipped: PropTypes.array.isRequired,
   goToNextQuestion: PropTypes.func.isRequired,
   answerTheQuestion: PropTypes.func.isRequired,
 };

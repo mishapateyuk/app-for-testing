@@ -5,7 +5,6 @@ const testInProgress = (
       currentTestId: null,
       testAnswers: null,
       testResult: null,
-      skipped: [],
     },
     action
   ) => {
@@ -18,7 +17,6 @@ const testInProgress = (
             testInitialTime: action.initialTime,
             currentTestId: action.currentTestId,
             testAnswers: action.testAnswers,
-            skipped: [],
           }
         );
       case 'CLEAR_CURRENT_TEST_INFO' :
@@ -47,6 +45,19 @@ const testInProgress = (
           state,
           {
             testAnswers: withAnswer,
+          }
+        );
+      case 'SKIP_THE_QUESTION' :
+        const withSkipped = [...state.testAnswers];
+        const i = withSkipped.indexOf(
+          withSkipped.find(answer => answer.id === action.id)
+        );
+        withSkipped.push(withSkipped.splice(i, 1)[0]);
+        return Object.assign(
+          {},
+          state,
+          {
+            testAnswers: withSkipped,
           }
         );
       case 'SET_ANSWER_RESULT' :
