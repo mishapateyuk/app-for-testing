@@ -50,17 +50,17 @@ export const checkAnswers = (answers, id, userName) => dispatch => {
     );
 };
 
-export const answerTheQuestion = (questionId, answer, testId) => dispatch => {
+export const answerTheQuestion = (currentQuestionId, answer, testId) => dispatch => {
   dispatch({
     type: answerTheQuestionConstant,
-    questionId,
+    currentQuestionId,
     answer
   });
-  axios.post('/api/check-question-answer', {questionId, answer, testId})
+  axios.post('/api/check-question-answer', {currentQuestionId, answer, testId})
     .then(
       result => dispatch({
         type: setAnswerResult,
-        questionId,
+        currentQuestionId,
         result: result.data,
       })
     );
@@ -69,14 +69,13 @@ export const answerTheQuestion = (questionId, answer, testId) => dispatch => {
 export const skipTheQuestion = id => dispatch => {
   dispatch({
     type: skipTheQuestionConstant,
-    questionId: id,
+    currentQuestionId: id,
   });
 };
 
-export const goToNextQuestion = (skipped, testAnswers) => dispatch => {
-  const newId = testAnswers.find(answer => answer);
-  dispatch({
-  type: changeQuestionId,
-  newId,
-  });
+export const goToNextQuestion = (skipped, testAnswers, history) => dispatch => {
+  const nextAnswerInfo = testAnswers.find(answer => !answer.answer);
+  return nextAnswerInfo ?
+    dispatch({type: changeQuestionId, newId: nextAnswerInfo.id}) :
+    history.push('/test-result');
 };

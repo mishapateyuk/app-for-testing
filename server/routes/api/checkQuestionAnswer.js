@@ -13,9 +13,9 @@ router.post('/', (req, res) => {
         console.log(err);
       } else {
         const testsInformation = JSON.parse(data);
-        const {questionId, answer, testId} = req.body;
+        const {currentQuestionId, answer, testId} = req.body;
         testsInformation[testId]
-          .answers[questionId].toString() === answer.toString() ?
+          .answers[currentQuestionId].toString() === answer.toString() ?
             res.send(true) : res.send(false);
       };
     }

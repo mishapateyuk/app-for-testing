@@ -18,17 +18,17 @@ import {
 const mapStateToProps = ({testsInfo, testInProgress}) => ({
   testId: testInProgress.currentTestId,
   questions: testsInfo.testQuestions,
-  questionId: testInProgress.questionId,
+  currentQuestionId: testInProgress.currentQuestionId,
   testAnswers: testInProgress.testAnswers,
   skipped: testInProgress.skipped,
 });
 
 const mapDispatchToProps = dispatch => ({
-  answerTheQuestion: (questionId, answer, testId) => dispatch(
-    answerTheQuestionAction(questionId, answer, testId)
+  answerTheQuestion: (currentQuestionId, answer, testId) => dispatch(
+    answerTheQuestionAction(currentQuestionId, answer, testId)
   ),
-  goToNextQuestion: (questions, testAnswers) => dispatch(
-    goToNextQuestionAction(questions, testAnswers)
+  goToNextQuestion: (questions, testAnswers, history) => dispatch(
+    goToNextQuestionAction(questions, testAnswers, history)
   ),
   setInitialQuestionId: id => dispatch({
     type: setInitialQuestionId,
@@ -48,7 +48,7 @@ class Answers extends React.PureComponent {
   };
 
   componentDidMount() {
-    if (this.props.questionId === null) {
+    if (this.props.currentQuestionId === null) {
       this.props.setInitialQuestionId(this.props.questions[0].id);
     };
   };
@@ -58,9 +58,10 @@ class Answers extends React.PureComponent {
       goToNextQuestion,
       skipped,
       testAnswers,
-      questionId,
+      currentQuestionId,
       answerTheQuestion,
-      testId
+      testId,
+      history
     } = this.props;
     const inputs = Array.from(
       this.answersWrapper.getElementsByTagName('input')
@@ -70,21 +71,21 @@ class Answers extends React.PureComponent {
         acc.concat([curr.id]) :
         acc;
     }, []);
-    answerTheQuestion(questionId, answer, testId);
-    goToNextQuestion(skipped, testAnswers);
+    answerTheQuestion(currentQuestionId, answer, testId);
+    goToNextQuestion(skipped, testAnswers, history);
   };
 
   skipHandler() {
-    const {questionId} = this.props;
-    skipTheQuestion(questionId);
+    const {currentQuestionId} = this.props;
+    skipTheQuestion(currentQuestionId);
   };
 
   render() {
-    const {questionId, questions} = this.props;
+    const {currentQuestionId, questions} = this.props;
     const currentQuestion = questions
-      .find(question => question.id === questionId);
+      .find(question => question.id === currentQuestionId);
     return (
-      questionId === null ?
+      currentQuestionId === null ?
         <div /> :
         <div className="answers" ref={div => {this.answersWrapper = div;}}>
           {
@@ -125,7 +126,7 @@ class Answers extends React.PureComponent {
 Answers.propTypes = {
   questions: PropTypes.array,
   testAnswers: PropTypes.array,
-  questionId: PropTypes.string,
+  currentQuestionId: PropTypes.string,
   testId: PropTypes.string,
   skipped: PropTypes.array.isRequired,
   goToNextQuestion: PropTypes.func.isRequired,

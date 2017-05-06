@@ -1,7 +1,7 @@
 const testInProgress = (
     state = {
       testInitialTime: null,
-      questionId: null,
+      currentQuestionId: null,
       currentTestId: null,
       testAnswers: null,
       testResult: null,
@@ -27,7 +27,7 @@ const testInProgress = (
           state,
           {
             testInitialTime: null,
-            questionId: null,
+            currentQuestionId: null,
           }
         );
       case 'CHANGE_QUESTION_ID' :
@@ -35,12 +35,12 @@ const testInProgress = (
           {},
           state,
           {
-            questionId: action.newId,
+            currentQuestionId: action.newId,
           }
         );
       case 'ANSWER_THE_QUESTION' :
         const withAnswer = [...state.testAnswers];
-        withAnswer.find(answer => answer.id === action.questionId)
+        withAnswer.find(answer => answer.id === action.currentQuestionId)
           .answer = action.answer;
         return Object.assign(
           {},
@@ -51,7 +51,7 @@ const testInProgress = (
         );
       case 'SET_ANSWER_RESULT' :
         const withResult = [...state.testAnswers];
-        withResult.find(answer => answer.id === action.questionId)
+        withResult.find(answer => answer.id === action.currentQuestionId)
           .result = action.result;
         return Object.assign(
           {},
@@ -81,7 +81,7 @@ const testInProgress = (
           {},
           state,
           {
-            questionId: action.id,
+            currentQuestionId: action.id,
           }
         );
       default :

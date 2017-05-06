@@ -6,22 +6,22 @@ import Markdown from './Markdown.react';
 
 const mapStateToProps = ({testsInfo, testInProgress}) => ({
   questions: testsInfo.testQuestions,
-  questionId: testInProgress.questionId,
+  currentQuestionId: testInProgress.currentQuestionId,
 });
 
-const QuestionText = ({questions, questionId}) =>
-  questionId === null ?
+const QuestionText = ({questions, currentQuestionId}) =>
+  currentQuestionId === null ?
     <div /> :
     <Markdown
       className="question-text"
       html={
-        questions.find(question => question.id === questionId).text
+        questions.find(question => question.id === currentQuestionId).text
       }
     />;
 
 QuestionText.propTypes = {
   questions: PropTypes.array.isRequired,
-  questionId: PropTypes.string,
+  currentQuestionId: PropTypes.string,
 };
 
 export default connect(mapStateToProps, null)(QuestionText);
