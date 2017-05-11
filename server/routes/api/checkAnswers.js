@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
         const recommendations = [];
         const rightAnswersCount = answers
           .reduce((acc, curr) => {
-            if (curr.answer.toString() ===
+            if (curr.answer && curr.answer.toString() ===
               testsInformation[id].answers[curr.id].toString()) {
               return ++acc;
             } else {

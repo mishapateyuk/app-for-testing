@@ -26,9 +26,10 @@ const mapDispatchToProps = dispatch => ({
   answerTheQuestion: (currentQuestionId, answer, testId) => dispatch(
     answerTheQuestionAction(currentQuestionId, answer, testId)
   ),
-  goToNextQuestion: (questions, testAnswers, history) => dispatch(
-    goToNextQuestionAction(questions, testAnswers, history)
-  ),
+  goToNextQuestion: (testAnswers, history) => {
+    console.log(testAnswers);
+    dispatch(goToNextQuestionAction(testAnswers, history));
+  },
   setInitialQuestionId: id => dispatch({
     type: setInitialQuestionId,
     id,
@@ -65,11 +66,13 @@ class Answers extends React.PureComponent {
     const inputs = Array.from(
       this.answersWrapper.getElementsByTagName('input')
     );
+
     const answer = inputs.reduce((acc, curr) => {
       return curr.checked ?
         acc.concat([curr.id]) :
         acc;
     }, []);
+
     answerTheQuestion(currentQuestionId, answer, testId);
     goToNextQuestion(testAnswers, history);
   };
@@ -82,6 +85,7 @@ class Answers extends React.PureComponent {
       skipTheQuestion,
       goToNextQuestion
     } = this.props;
+
     skipTheQuestion(currentQuestionId);
     goToNextQuestion(testAnswers, history);
   };
