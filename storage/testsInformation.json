@@ -450,6 +450,38 @@
       "015bb665-842e-4976-9dd0-d0ba5021cb64" : [
         "50b43ca6-4d61-062d-ac25-bc81ad4b037c"
       ]
+    },
+    "recommendations" : {
+      "001bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #1",
+      "002bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #2",
+      "003bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #3",
+      "004bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #4",
+      "005bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #5",
+      "006bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #6",
+      "007bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #7",
+      "008bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #8",
+      "009bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #9",
+      "010bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #10",
+      "011bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #11",
+      "012bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #12",
+      "013bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #13",
+      "014bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #14",
+      "015bb665-842e-4976-9dd0-d0ba5021cb64" : 
+        "Some recommendation #15"
     }
   }
 }

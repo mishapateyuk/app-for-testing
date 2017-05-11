@@ -70,13 +70,6 @@ export const answerTheQuestion = (currentQuestionId, answer, testId) =>
       );
   };
 
-export const skipTheQuestion = id => dispatch => {
-  dispatch({
-    type: skipTheQuestionConstant,
-    id,
-  });
-};
-
 export const goToNextQuestion = (testAnswers, history) => dispatch => {
   const nextAnswerInfo = testAnswers.find(answer => !answer.answer);
   return nextAnswerInfo ?

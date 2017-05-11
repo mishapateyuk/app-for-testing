@@ -14,19 +14,27 @@ router.post('/', (req, res) => {
       } else {
         const testsInformation = JSON.parse(data);
         const {id, userName, answers} = req.body;
-        let result = testsInformation[id].answers.reduce(
-          (acc, answer) => {
-            const userAnswer = answers.find(
-              userAnswer => userAnswer.questionIndex === answer.questionIndex
-            );
-            return userAnswer && userAnswer.questionAnswer.toString() ===
-            answer.questionAnswer.toString() ?
-              ++acc :
-              acc;
-          },
-          0
-        );
-        res.send(`${result} / ${testsInformation[id].answers.length}`);
+        const recommendations = [];
+        const rightAnswersCount = answers
+          .reduce((acc, curr) => {
+            if (curr.answer.toString() ===
+              testsInformation[id].answers[curr.id].toString()) {
+              return ++acc;
+            } else {
+              recommendations.push(
+                testsInformation[id].recommendations[curr.id]
+              );
+              return acc;
+            };
+          }
+          , 0);
+        const questionsCount = answers.length;
+        const result = {
+          rightAnswersCount,
+          questionsCount,
+          recommendations,
+        };
+        res.send(result);
       };
     }
   );

@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import {checkAnswers as checkAnswersAction} from '../actions/testsActionCreators';
 import Loading from '../components/Loading.react';
 
-const mapStateToProps = ({testsInfo, userInfo}) => ({
-  answers: testsInfo.testAnswers,
-  id: testsInfo.currentTestId,
+const mapStateToProps = ({testInProgress, userInfo}) => ({
+  answers: testInProgress.testAnswers,
+  id: testInProgress.currentTestId,
   userName: userInfo.userName,
-  testResult: testsInfo.testResult,
+  testResult: testInProgress.testResult,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -30,8 +30,14 @@ class TestResult extends React.PureComponent {
       return <div className="test-result bg-info">There's no test result</div>;
     };
     return testResult ?
-      <div className="test-result bg-info">
-        {`${userName}'s test result is ${testResult}`}
+      <div>
+        <div className="test-result bg-info">
+          {`${userName}'s test result is ${testResult.rightAnswersCount}/${testResult.questionsCount}`}
+        </div>
+        <h3>
+            Here some recommendations for you:
+        </h3>
+        {testResult.recommendations.map(rec => <p>{rec}</p>)}
       </div> :
       <Loading />;
   };

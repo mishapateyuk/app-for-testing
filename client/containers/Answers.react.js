@@ -6,13 +6,13 @@ import uuidV4Js from 'uuid-v4.js';
 import Markdown from '../components/Markdown.react';
 import {
   changeQuestionIndex,
-  setInitialQuestionId
+  setInitialQuestionId,
+  skipTheQuestion as skipTheQuestionConstant
 } from '../constants/constants';
 import {withRouter} from 'react-router';
 import {
   answerTheQuestion as answerTheQuestionAction,
   goToNextQuestion as goToNextQuestionAction,
-  skipTheQuestion as skipTheQuestionAction
 } from '../actions/testsActionCreators';
 
 const mapStateToProps = ({testsInfo, testInProgress}) => ({
@@ -33,9 +33,10 @@ const mapDispatchToProps = dispatch => ({
     type: setInitialQuestionId,
     id,
   }),
-  skipTheQuestion: id => dispatch(
-    skipTheQuestionAction(id)
-  ),
+  skipTheQuestion: id => dispatch({
+    type: skipTheQuestionConstant,
+    id,
+  }),
 });
 
 class Answers extends React.PureComponent {
@@ -75,13 +76,14 @@ class Answers extends React.PureComponent {
 
   skipHandler() {
     const {
+      testAnswers,
       history,
       currentQuestionId,
       skipTheQuestion,
       goToNextQuestion
     } = this.props;
     skipTheQuestion(currentQuestionId);
-    goToNextQuestion(this.props.testAnswers, history);
+    goToNextQuestion(testAnswers, history);
   };
 
   render() {

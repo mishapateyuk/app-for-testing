@@ -36,41 +36,44 @@ const testInProgress = (
             currentQuestionId: action.newId,
           }
         );
-      case 'ANSWER_THE_QUESTION' :
-        const withAnswer = [...state.testAnswers];
-        withAnswer.find(answer => answer.id === action.currentQuestionId)
-          .answer = action.answer;
-        return Object.assign(
-          {},
-          state,
-          {
-            testAnswers: withAnswer,
-          }
-        );
-      case 'SKIP_THE_QUESTION' :
-        const withSkipped = [...state.testAnswers];
-        const i = withSkipped.indexOf(
-          withSkipped.find(answer => answer.id === action.id)
-        );
-        withSkipped.push(withSkipped.splice(i, 1)[0]);
-        return Object.assign(
-          {},
-          state,
-          {
-            testAnswers: withSkipped,
-          }
-        );
-      case 'SET_ANSWER_RESULT' :
-        const withResult = [...state.testAnswers];
-        withResult.find(answer => answer.id === action.currentQuestionId)
+      case 'ANSWER_THE_QUESTION' : {
+        const testAnswers = [...state.testAnswers];
+          testAnswers.find(answer => answer.id === action.currentQuestionId)
+            .answer = action.answer;
+          return Object.assign(
+            {},
+            state,
+            {
+              testAnswers,
+            }
+          );
+      };
+      case 'SKIP_THE_QUESTION' : {
+          const testAnswers = [...state.testAnswers];
+          const i = testAnswers.indexOf(
+            testAnswers.find(answer => answer.id === action.id)
+          );
+          testAnswers.push(testAnswers.splice(i, 1)[0]);
+          return Object.assign(
+            {},
+            state,
+            {
+              testAnswers,
+            }
+          );
+      };
+      case 'SET_ANSWER_RESULT' : {
+        const testAnswers = [...state.testAnswers];
+        testAnswers.find(answer => answer.id === action.currentQuestionId)
           .result = action.result;
         return Object.assign(
           {},
           state,
           {
-            testAnswers: withResult,
+            testAnswers,
           }
         );
+      };
       case 'CLEAR_TEST_ANSWERS' :
         return Object.assign(
           {},
