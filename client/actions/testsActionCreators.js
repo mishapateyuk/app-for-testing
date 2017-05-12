@@ -50,13 +50,28 @@ export const checkAnswers = (answers, id, userName) => dispatch => {
     );
 };
 
-export const answerTheQuestion = (currentQuestionId, answer, testId) =>
+const goToNextQuestion = (testAnswers, history, id, dispatch) => {
+  const nextAnswerInfo = testAnswers
+    .find(answer => !answer.answer && answer.id !== id);
+  return nextAnswerInfo ?
+    dispatch({type: changeQuestionId, newId: nextAnswerInfo.id}) :
+    history.push('/test-result');
+};
+
+export const answerTheQuestion = (
+    currentQuestionId,
+    answer,
+    testId,
+    testAnswers,
+    history
+  ) =>
   dispatch => {
     dispatch({
       type: answerTheQuestionConstant,
       currentQuestionId,
       answer
     });
+    goToNextQuestion(testAnswers, history, changeQuestionId, dispatch);
     axios.post(
       '/api/check-question-answer',
       {currentQuestionId, answer, testId}
@@ -70,9 +85,15 @@ export const answerTheQuestion = (currentQuestionId, answer, testId) =>
       );
   };
 
-export const goToNextQuestion = (testAnswers, history) => dispatch => {
-  const nextAnswerInfo = testAnswers.find(answer => !answer.answer);
-  return nextAnswerInfo ?
-    dispatch({type: changeQuestionId, newId: nextAnswerInfo.id}) :
-    history.push('/test-result');
+export const skipTheQuestion = (id, testAnswers) => dispatch => {
+  dispatch({
+    type: skipTheQuestionConstant,
+    id,
+  });
+  const nextAnswerInfo = testAnswers
+    .find(answer => !answer.answer && answer.id !== id);
+  dispatch({
+    type: changeQuestionId,
+    newId: nextAnswerInfo.id,
+  });
 };

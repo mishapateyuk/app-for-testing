@@ -6,13 +6,12 @@ import uuidV4Js from 'uuid-v4.js';
 import Markdown from '../components/Markdown.react';
 import {
   changeQuestionIndex,
-  setInitialQuestionId,
-  skipTheQuestion as skipTheQuestionConstant
+  setInitialQuestionId
 } from '../constants/constants';
 import {withRouter} from 'react-router';
 import {
   answerTheQuestion as answerTheQuestionAction,
-  goToNextQuestion as goToNextQuestionAction,
+  skipTheQuestion as skipTheQuestionAction
 } from '../actions/testsActionCreators';
 
 const mapStateToProps = ({testsInfo, testInProgress}) => ({
@@ -23,21 +22,28 @@ const mapStateToProps = ({testsInfo, testInProgress}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  answerTheQuestion: (currentQuestionId, answer, testId) => dispatch(
-    answerTheQuestionAction(currentQuestionId, answer, testId)
+  answerTheQuestion: (
+    currentQuestionId,
+    answer,
+    testId,
+    testAnswers,
+    history
+  ) => dispatch(
+    answerTheQuestionAction(
+      currentQuestionId,
+      answer,
+      testId,
+      testAnswers,
+      history
+    )
   ),
-  goToNextQuestion: (testAnswers, history) => {
-    console.log(testAnswers);
-    dispatch(goToNextQuestionAction(testAnswers, history));
-  },
   setInitialQuestionId: id => dispatch({
     type: setInitialQuestionId,
     id,
   }),
-  skipTheQuestion: id => dispatch({
-    type: skipTheQuestionConstant,
-    id,
-  }),
+  skipTheQuestion: (id, testAnswers) => dispatch(
+    skipTheQuestionAction(id, testAnswers)
+  ),
 });
 
 class Answers extends React.PureComponent {
@@ -73,8 +79,7 @@ class Answers extends React.PureComponent {
         acc;
     }, []);
 
-    answerTheQuestion(currentQuestionId, answer, testId);
-    goToNextQuestion(testAnswers, history);
+    answerTheQuestion(currentQuestionId, answer, testId, testAnswers, history);
   };
 
   skipHandler() {
@@ -86,8 +91,7 @@ class Answers extends React.PureComponent {
       goToNextQuestion
     } = this.props;
 
-    skipTheQuestion(currentQuestionId);
-    goToNextQuestion(testAnswers, history);
+    skipTheQuestion(currentQuestionId, testAnswers);
   };
 
   render() {
@@ -138,7 +142,6 @@ Answers.propTypes = {
   testAnswers: PropTypes.array,
   currentQuestionId: PropTypes.string,
   testId: PropTypes.string,
-  goToNextQuestion: PropTypes.func.isRequired,
   answerTheQuestion: PropTypes.func.isRequired,
 };
 

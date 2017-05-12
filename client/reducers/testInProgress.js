@@ -49,7 +49,6 @@ const testInProgress = (
           );
       };
       case 'SKIP_THE_QUESTION' : {
-        debugger;
           const testAnswers = [...state.testAnswers];
           const i = testAnswers.indexOf(
             testAnswers.find(answer => answer.id === action.id)
