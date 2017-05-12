@@ -13,9 +13,9 @@ import {
 export const loadTestsDescriptions = () => dispatch => {
   axios.get('/api/descriptions')
     .then(
-      result => dispatch({
+      ({data}) => dispatch({
         type: testsDescriptionsAreLoaded,
-        testsDescriptions: result.data,
+        testsDescriptions: data,
       })
     );
 };
@@ -23,9 +23,9 @@ export const loadTestsDescriptions = () => dispatch => {
 export const loadTestPreview = id => dispatch => {
   axios.get(`/api/preview-info/${id}`)
     .then(
-      result => dispatch({
+      ({data}) => dispatch({
         type: testPreviewInfoIsLoaded,
-        testPreviewInfo: result.data,
+        testPreviewInfo: data,
       })
     );
 };
@@ -33,9 +33,9 @@ export const loadTestPreview = id => dispatch => {
 export const loadTestQuestions = id => dispatch => {
   axios.get(`/api/questions/${id}`)
     .then(
-      result => dispatch({
+      ({data}) => dispatch({
         type: testQuestionsAreLoaded,
-        testQuestions: result.data,
+        testQuestions: data,
       })
     );
 };
@@ -43,16 +43,16 @@ export const loadTestQuestions = id => dispatch => {
 export const checkAnswers = (answers, id, userName) => dispatch => {
   axios.post('/api/check-answers', {answers, id, userName})
     .then(
-      result => dispatch({
+      ({data}) => dispatch({
         type: testAnswersAreChecked,
-        testResult: result.data,
+        testResult: data,
       })
     );
 };
 
-const goToNextQuestion = (testAnswers, history, id, dispatch) => {
+const goToNextQuestion = (testAnswers, history, questionId, dispatch) => {
   const nextAnswerInfo = testAnswers
-    .find(answer => !answer.answer && answer.id !== id);
+    .find(({answer, id}) => !answer && id !== questionId);
   return nextAnswerInfo ?
     dispatch({type: changeQuestionId, newId: nextAnswerInfo.id}) :
     history.push('/test-result');
@@ -64,8 +64,7 @@ export const answerTheQuestion = (
     testId,
     testAnswers,
     history
-  ) =>
-  dispatch => {
+  ) => dispatch => {
     dispatch({
       type: answerTheQuestionConstant,
       currentQuestionId,
@@ -77,21 +76,21 @@ export const answerTheQuestion = (
       {currentQuestionId, answer, testId}
     )
       .then(
-        result => dispatch({
+        ({data}) => dispatch({
           type: setAnswerResult,
           currentQuestionId,
-          result: result.data,
+          result: data,
         })
       );
   };
 
-export const skipTheQuestion = (id, testAnswers) => dispatch => {
+export const skipTheQuestion = (questionId, testAnswers) => dispatch => {
   dispatch({
     type: skipTheQuestionConstant,
-    id,
+    id: questionId,
   });
   const nextAnswerInfo = testAnswers
-    .find(answer => !answer.answer && answer.id !== id);
+    .find(({answer, id}) => !answer && id !== questionId);
   dispatch({
     type: changeQuestionId,
     newId: nextAnswerInfo.id,

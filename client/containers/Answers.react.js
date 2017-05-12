@@ -98,9 +98,10 @@ class Answers extends React.PureComponent {
     const {currentQuestionId, questions} = this.props;
     const currentQuestion = questions
       .find(question => question.id === currentQuestionId);
-    return (
-      currentQuestionId === null ?
-        <div /> :
+    return currentQuestionId === null ?
+      (
+        <div />
+      ) : (
         <div className="answers" ref={div => {this.answersWrapper = div;}}>
           {
             currentQuestion.answers.map(
@@ -133,7 +134,7 @@ class Answers extends React.PureComponent {
             Skip &#8658;
           </button>
         </div>
-    );
+      );
   };
 };
 
