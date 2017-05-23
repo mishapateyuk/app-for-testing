@@ -70,7 +70,7 @@ export const answerTheQuestion = (
       currentQuestionId,
       answer
     });
-    goToNextQuestion(testAnswers, history, changeQuestionId, dispatch);
+    goToNextQuestion(testAnswers, history, currentQuestionId, dispatch);
     axios.post(
       '/api/check-question-answer',
       {currentQuestionId, answer, testId}
