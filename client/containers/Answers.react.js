@@ -6,7 +6,7 @@ import uuidV4Js from 'uuid-v4.js';
 import Markdown from '../components/Markdown.react';
 import {
   changeQuestionIndex,
-  setInitialQuestionId
+  SET_INITIAL_QUESTION_ID
 } from '../constants/constants';
 import {withRouter} from 'react-router';
 import {
@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
     )
   ),
   setInitialQuestionId: id => dispatch({
-    type: setInitialQuestionId,
+    type: SET_INITIAL_QUESTION_ID,
     id,
   }),
   skipTheQuestion: (id, testAnswers) => dispatch(

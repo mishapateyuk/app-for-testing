@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {checkUserName} from '../services/checkAuthData';
 import {connect} from 'react-redux';
-import {setUserName} from '../constants/constants';
+import {SET_USERNAME} from '../constants/constants';
 
 const mapDispatchToProps = dispatch => ({
   setUserName: userName => dispatch({
-    type: setUserName,
+    type: SET_USERNAME,
     userName,
   }),
 });

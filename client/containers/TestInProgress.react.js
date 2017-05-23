@@ -8,17 +8,17 @@ import QuestionsBar from '../components/QuestionsBar.react';
 import QuestionText from '../components/QuestionText.react';
 import Answers from './Answers.react';
 import {
-  clearCurrentTestInfo,
-  clearTetsAnswers,
-  clearTestQuestions
+  CLEAR_CURRENT_TEST_INFO,
+  CLEAR_TEST_ANSWERS,
+  CLEAR_TEST_QUESTIONS
 } from '../constants/constants';
 
 const mapDispatchToProps = dispatch => ({
   loadQuestions: id => dispatch(loadTestQuestions(id)),
   loadPreviewInfo: id => dispatch(loadTestPreview(id)),
-  clearCurrentTestInfo: () => dispatch({type: clearCurrentTestInfo}),
-  clearTetsAnswers: () => dispatch({type: clearTetsAnswers}),
-  clearTestQuestions: () => dispatch({type: clearTestQuestions}),
+  clearCurrentTestInfo: () => dispatch({type: CLEAR_CURRENT_TEST_INFO}),
+  clearTetsAnswers: () => dispatch({type: CLEAR_TEST_ANSWERS}),
+  clearTestQuestions: () => dispatch({type: CLEAR_TEST_QUESTIONS}),
 });
 
 const mapStateToProps = ({testsInfo, userInfo, testInProgress}) => ({

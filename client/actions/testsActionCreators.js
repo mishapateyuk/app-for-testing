@@ -1,20 +1,20 @@
 import axios from 'axios';
 import {
-  testsDescriptionsAreLoaded,
-  testPreviewInfoIsLoaded,
-  testQuestionsAreLoaded,
-  testAnswersAreChecked,
-  changeQuestionId,
-  answerTheQuestion as answerTheQuestionConstant,
-  skipTheQuestion as skipTheQuestionConstant,
-  setAnswerResult
+  TESTS_DESCRIPTIONS_ARE_LOADED,
+  TEST_PREVIEW_INFO_IS_LOADED,
+  TEST_QUESTIONS_ARE_LOADED,
+  TEST_ANSWERS_ARE_CHECKED,
+  CHANGE_QUESTION_ID,
+  ANSWER_THE_QUESTION,
+  SKIP_THE_QUESTION,
+  SET_ANSWER_RESULT
 } from '../constants/constants';
 
 export const loadTestsDescriptions = () => dispatch => {
   axios.get('/api/descriptions')
     .then(
       ({data}) => dispatch({
-        type: testsDescriptionsAreLoaded,
+        type: TESTS_DESCRIPTIONS_ARE_LOADED,
         testsDescriptions: data,
       })
     );
@@ -24,7 +24,7 @@ export const loadTestPreview = id => dispatch => {
   axios.get(`/api/preview-info/${id}`)
     .then(
       ({data}) => dispatch({
-        type: testPreviewInfoIsLoaded,
+        type: TEST_PREVIEW_INFO_IS_LOADED,
         testPreviewInfo: data,
       })
     );
@@ -34,7 +34,7 @@ export const loadTestQuestions = id => dispatch => {
   axios.get(`/api/questions/${id}`)
     .then(
       ({data}) => dispatch({
-        type: testQuestionsAreLoaded,
+        type: TEST_QUESTIONS_ARE_LOADED,
         testQuestions: data,
       })
     );
@@ -44,7 +44,7 @@ export const checkAnswers = (answers, id, userName) => dispatch => {
   axios.post('/api/check-answers', {answers, id, userName})
     .then(
       ({data}) => dispatch({
-        type: testAnswersAreChecked,
+        type: TEST_ANSWERS_ARE_CHECKED,
         testResult: data,
       })
     );
@@ -54,7 +54,7 @@ const goToNextQuestion = (testAnswers, history, questionId, dispatch) => {
   const nextAnswerInfo = testAnswers
     .find(({answer, id}) => !answer && id !== questionId);
   return nextAnswerInfo ?
-    dispatch({type: changeQuestionId, newId: nextAnswerInfo.id}) :
+    dispatch({type: CHANGE_QUESTION_ID, newId: nextAnswerInfo.id}) :
     history.push('/test-result');
 };
 
@@ -66,7 +66,7 @@ export const answerTheQuestion = (
     history
   ) => dispatch => {
     dispatch({
-      type: answerTheQuestionConstant,
+      type: ANSWER_THE_QUESTION,
       currentQuestionId,
       answer
     });
@@ -77,7 +77,7 @@ export const answerTheQuestion = (
     )
       .then(
         ({data}) => dispatch({
-          type: setAnswerResult,
+          type: SET_ANSWER_RESULT,
           currentQuestionId,
           result: data,
         })
@@ -86,13 +86,13 @@ export const answerTheQuestion = (
 
 export const skipTheQuestion = (questionId, testAnswers) => dispatch => {
   dispatch({
-    type: skipTheQuestionConstant,
+    type: SKIP_THE_QUESTION,
     id: questionId,
   });
   const nextAnswerInfo = testAnswers
     .find(({answer, id}) => !answer && id !== questionId);
   dispatch({
-    type: changeQuestionId,
+    type: CHANGE_QUESTION_ID,
     newId: nextAnswerInfo.id,
   });
 };

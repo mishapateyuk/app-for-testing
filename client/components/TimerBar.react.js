@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {startTest, clearCurrentTestInfo} from '../constants/constants';
+import {START_TEST, CLEAR_CURRENT_TEST_INFO} from '../constants/constants';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router';
 
@@ -12,7 +12,7 @@ const mapStateToProps = ({testsInfo, testInProgress}) => ({
 
 const mapDispatchToProps = dispatch => ({
   startTest: (questions, id) => dispatch({
-    type: startTest,
+    type: START_TEST,
     currentTestId: id,
     initialTime: new Date().valueOf(),
     testAnswers: questions.map(question => ({
@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
     }))
   }),
   timeOver: () => dispatch({
-    type: clearCurrentTestInfo,
+    type: CLEAR_CURRENT_TEST_INFO,
   }),
 });
 

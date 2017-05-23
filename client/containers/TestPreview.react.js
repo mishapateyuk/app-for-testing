@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {clearUserName, clearTestPreviewInfo} from '../constants/constants';
+import {CLEAR_USERNAME, CLEAR_TEST_PREVIEW_INFO} from '../constants/constants';
 import {loadTestPreview} from '../actions/testsActionCreators';
 import Loading from '../components/Loading.react';
 import TestPreviewHeader from '../components/TestPreviewHeader.react';
@@ -12,9 +12,9 @@ import TestTopUsers from '../components/TestTopUsers.react';
 const mapDispatchToProps = dispatch => ({
   loadTestPreview: id => dispatch(loadTestPreview(id)),
   clearTestPeview: () => dispatch({
-    type: clearTestPreviewInfo,
+    type: CLEAR_TEST_PREVIEW_INFO,
   }),
-  clearUserName: () => dispatch({type: clearUserName}),
+  clearUserName: () => dispatch({type: CLEAR_USERNAME}),
 });
 
 const mapStateToProps = ({testsInfo}) => ({
