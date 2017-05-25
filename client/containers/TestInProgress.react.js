@@ -12,6 +12,7 @@ import {
   CLEAR_TEST_ANSWERS,
   CLEAR_TEST_QUESTIONS
 } from '../constants/constants';
+import {withRouter} from 'react-router';
 
 const mapDispatchToProps = dispatch => ({
   loadQuestions: id => dispatch(loadTestQuestions(id)),
@@ -40,6 +41,22 @@ class TestInProgress extends React.PureComponent {
     };
   };
 
+  componentDidMount() {
+    this.consoleClear = setInterval(() => {window.console.clear();}, 0);
+    this.documentHidden = setInterval(() => {
+      if (document.hidden) {
+        this.props.history.push('/trying-to-cheating');
+      } else {
+        return;
+      };
+    }, 0);
+  };
+
+  componentWillUnmount() {
+    clearInterval(this.documentHidden);
+    clearInterval(this.consoleClear);
+  };
+
   render () {
     return !this.props.userName ?
       <UserRegistrationForm /> :
@@ -63,4 +80,4 @@ TestInProgress.propTypes = {
   questionNumber: PropTypes.number,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestInProgress);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TestInProgress));

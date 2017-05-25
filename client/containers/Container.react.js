@@ -6,6 +6,7 @@ import {history} from '../store';
 import TestsList from './TestsList.react';
 import Contact from '../components/Contact.react';
 import About from '../components/About.react';
+import TryingToCheating from '../components/TryingToCheating.react';
 import TestPreview from './TestPreview.react';
 import TestInProgress from './TestInProgress.react';
 import TestResult from './TestResult.react';
@@ -23,6 +24,7 @@ class Container extends React.PureComponent {
           <Route path="/test-preview/:id" component={TestPreview} />
           <Route path="/test/:id" component={TestInProgress} />
           <Route path="/test-result" component={TestResult} />
+          <Route path="/trying-to-cheating" component={TryingToCheating} />
         </div>
       </ConnectedRouter>
     </div>
