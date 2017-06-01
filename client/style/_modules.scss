@@ -179,6 +179,7 @@ body {
 
 .true-answer p,
 .wrong-answer p,
-code {
+.wrong-answer code,
+.true-answer code {
   color: inherit;
 }

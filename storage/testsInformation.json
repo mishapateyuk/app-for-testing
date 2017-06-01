@@ -103,6 +103,302 @@
             "id" : "50b43ca6-4d61-010d-ac25-bc81ad4b037c"
           }
         ]
+      },
+      {
+        "id" : "004bb665-842e-4976-9dd0-d0ba5021cb64",
+        "text": "What is the correct syntax for referring to an external script called __\"xxx.js\"___?",   
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```<script href=\"xxx.js\">```",   
+            "id" : "50b43ca6-4d61-011d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```<script src=\"xxx.js\">```",    
+            "id" : "50b43ca6-4d61-012d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```<script name=\"xxx.js\">```",   
+            "id" : "50b43ca6-4d61-013d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "005bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "The external JavaScript file must contain the ```<script>``` tag.",    
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "True",   
+            "id" : "50b43ca6-4d61-014d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "False",    
+            "id" : "50b43ca6-4d61-015d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "006bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "How do you write __\"Hello World\"___ in an alert box?",   
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```msg(\"Hello World\");```",    
+            "id" : "50b43ca6-4d61-016d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```alertBox(\"Hello World\");```",   
+            "id" : "50b43ca6-4d61-017d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```alert(\"Hello World\");```",    
+            "id" : "50b43ca6-4d61-018d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```msgBox(\"Hello World\");```",   
+            "id" : "50b43ca6-4d61-019d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "007bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "How do you call a function named __\"myFunction\"__?",   
+        "type": "checkbox",   
+        "answers": [    
+          {   
+            "text": "```call myFunction()```",    
+            "id" : "50b43ca6-4d61-020d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```myFunction()```",   
+            "id" : "50b43ca6-4d61-021d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```call function myFunction()```",   
+            "id" : "50b43ca6-4d61-022d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```myFunction.call()```",    
+            "id" : "50b43ca6-4d61-023d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```myFunction.apply()```",   
+            "id" : "50b43ca6-4d61-024d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "008bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "How to write an __IF__ statement in __JavaScript__?",    
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```if i = 5 then```",    
+            "id" : "50b43ca6-4d61-025d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```if i = 5```",   
+            "id" : "50b43ca6-4d61-999d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```if (i == 5)```",    
+            "id" : "50b43ca6-4d61-026d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```if i == 5 then```",   
+            "id" : "50b43ca6-4d61-027d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```(if i == 5)```",    
+            "id" : "50b43ca6-4d61-028d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "009bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "How does a __WHILE__ loop start?",   
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```while (i <= 10; i++)```",   
+            "id" : "50b43ca6-4d61-029d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```while i = 1 to 10```",    
+            "id" : "50b43ca6-4d61-030d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```while (i <= 10)```",    
+            "id" : "50b43ca6-4d61-031d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```while (i <= 10) do```",   
+            "id" : "50b43ca6-4d61-032d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```(while i <= 10) ()```",   
+            "id" : "50b43ca6-4d61-033d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "010bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "How does a __FOR__ loop start?",   
+        "type": "checkbox",   
+        "answers": [    
+          {   
+            "text": "```for (i = 0; i <= 5)```",    
+            "id" : "50b43ca6-4d61-034d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```for (i <= 5; i++)```",    
+            "id" : "50b43ca6-4d61-035d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```for (i = 0; i <= 5; i++)```",   
+            "id" : "50b43ca6-4d61-036d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```for i = 1 to 5```",   
+            "id" : "50b43ca6-4d61-037d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```for ( ; ; )```",    
+            "id" : "50b43ca6-4d61-038d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "011bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "How can you add a __comment__ in a __JavaScript__?",   
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```//This is a comment```",    
+            "id" : "50b43ca6-4d61-039d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```<!--This is a comment-->```",   
+            "id" : "50b43ca6-4d61-040d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```'This is a comment```",   
+            "id" : "50b43ca6-4d61-041d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```\"\"This is a comment\"\"```",    
+            "id" : "50b43ca6-4d61-042d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "012bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "What is the correct way to write a __JavaScript array__?",   
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```var colors = (1:'red', 2:'green', 3:'blue')```",    
+            "id" : "50b43ca6-4d61-043d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "``` var colors = 'red', 'green', 'blue'```",   
+            "id" : "50b43ca6-4d61-044d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')```",    
+            "id" : "50b43ca6-4d61-045d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```var colors = ['red', 'green', 'blue']```",    
+            "id" : "50b43ca6-4d61-046d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```var colors = {1:'red', 2:'green', 3:'blue'}```",    
+            "id" : "50b43ca6-4d61-047d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "013bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "How do you find the number with the highest value of x and y?",    
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```ceil(x, y)```",   
+            "id" : "50b43ca6-4d61-048d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```Math.ceil(x, y)```",    
+            "id" : "50b43ca6-4d61-049d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```top(x, y)```",    
+            "id" : "50b43ca6-4d61-050d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```Math.top(x, y)```",   
+            "id" : "50b43ca6-4d61-051d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```max(x, y)```",    
+            "id" : "50b43ca6-4d61-052d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```Math.max(x, y)```",   
+            "id" : "50b43ca6-4d61-053d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "014bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "What is the correct JavaScript syntax for opening a new window called \"w2\" ?",   
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```w2 = window.new(\"http://www.w3schools.com\");```",   
+            "id" : "50b43ca6-4d61-054d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```w2 = window.open(\"http://www.w3schools.com\");```",    
+            "id" : "50b43ca6-4d61-055d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```w2 = new Window(\"http://www.w3schools.com\");```",   
+            "id" : "50b43ca6-4d61-056d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```w2 = window.redirect(\"http://www.w3schools.com\");```",    
+            "id" : "50b43ca6-4d61-057d-ac25-bc81ad4b037c"   
+          }   
+        ]   
+      },    
+      {   
+        "id" : "015bb665-842e-4976-9dd0-d0ba5021cb64",    
+        "text": "What will the following code return: ```Boolean(~~10.3 > 10.2)```",    
+        "type": "radio",    
+        "answers": [    
+          {   
+            "text": "```NaN```",    
+            "id" : "50b43ca6-4d61-058d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```null```",   
+            "id" : "50b43ca6-4d61-059d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```undefined```",    
+            "id" : "50b43ca6-4d61-060d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```true```",   
+            "id" : "50b43ca6-4d61-061d-ac25-bc81ad4b037c"   
+          },    
+          {   
+            "text": "```false```",    
+            "id" : "50b43ca6-4d61-062d-ac25-bc81ad4b037c"   
+          }   
+        ]
       }
     ],
     "answers": {
