@@ -9,12 +9,13 @@ const mapStateToProps = ({testsInfo, testInProgress}) => ({
   currentQuestionId: testInProgress.currentQuestionId,
 });
 
-const QuestionText = ({questions, currentQuestionId}) =>
-  currentQuestionId === null ?
+const QuestionText = ({questions, currentQuestionId, text}) =>
+  (currentQuestionId === null && !text) ?
     <div /> :
     <Markdown
       className="question-text"
       html={
+        text ||
         questions.find(question => question.id === currentQuestionId).text
       }
     />;

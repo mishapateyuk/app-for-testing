@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import UserRegistrationForm from './UserRegistrationForm.react';
-import {loadTestQuestions, loadTestPreview} from '../actions/testsActionCreators';
+import {
+  loadTestQuestions,
+  loadTestPreview
+} from '../actions/testsActionCreators';
 import TimerBar from '../components/TimerBar.react';
 import QuestionsBar from '../components/QuestionsBar.react';
 import QuestionText from '../components/QuestionText.react';

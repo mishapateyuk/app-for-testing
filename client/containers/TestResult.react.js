@@ -6,11 +6,13 @@ import {
 } from '../actions/testsActionCreators';
 import Loading from '../components/Loading.react';
 import uuidV4Js from 'uuid-v4.js';
+import QuestionInfo from '../components/QuestionInfo.react';
 
-const mapStateToProps = ({testInProgress, userInfo}) => ({
+const mapStateToProps = ({testInProgress, userInfo, testsInfo}) => ({
   answers: testInProgress.testAnswers,
   id: testInProgress.currentTestId,
   userName: userInfo.userName,
+  questions: testsInfo.testQuestions,
   testResult: testInProgress.testResult,
 });
 
@@ -28,37 +30,14 @@ class TestResult extends React.PureComponent {
     };
   };
 
-  recommendations() {
-    const {recommendations} = this.props.testResult;
-    return recommendations.length ?
-      (
-        <div>
-          <h4>
-            You've done test with mistakes, so here some recommendations
-            for you:
-          </h4>
-          <ul className="recommendations">
-            {
-              recommendations.map(
-                recommendation => <li key={uuidV4Js()}>
-                    <p>{recommendation}</p>
-                  </li>
-                )
-            }
-          </ul>
-        </div>
-      ) :
-      (
-        <div>
-          <h4>
-            You've done test without any mistakes, congratulation for you!
-          </h4>
-        </div>
-      );
-  };
-
   render() {
-    const {answers, id, testResult, userName} = this.props;
+    const {
+      answers,
+      id,
+      testResult,
+      userName,
+      questions
+    } = this.props;
     if (!answers || !id || !userName) {
       return <div className="marketing test-result bg-info">
         <h3>There's no test result</h3>
@@ -74,7 +53,17 @@ class TestResult extends React.PureComponent {
             {`${testResult.rightAnswersCount}/${testResult.questionsCount}`}
           </strong>
         </h3>
-        {this.recommendations()}
+        {
+          questions.map(
+            question =>
+              (<QuestionInfo
+                key={uuidV4Js()}
+                question={question}
+                userAnswers={answers.find(a => a.id === question.id)}
+                rightAnswers={testResult.rightAnswers[question.id]}
+              />)
+          )
+        }
       </div> :
       <Loading />;
   };
@@ -84,6 +73,7 @@ TestResult.propTypes = {
   answers: PropTypes.array,
   id: PropTypes.string,
   userName: PropTypes.string,
+  questions: PropTypes.array,
   testResult: PropTypes.object,
 };
 

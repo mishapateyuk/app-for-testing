@@ -14,16 +14,16 @@ router.post('/', (req, res) => {
       } else {
         const testsInformation = JSON.parse(data);
         const {id, userName, answers} = req.body;
-        const recommendations = [];
+        const recommendations = testsInformation[id].recommendations;
+        const rightAnswers = testsInformation[id].answers;
         const rightAnswersCount = answers
           .reduce((acc, curr) => {
-            if (curr.answer && curr.answer.toString() ===
-              testsInformation[id].answers[curr.id].toString()) {
+            if (
+              curr.answer && curr.answer.toString() ===
+              testsInformation[id].answers[curr.id].toString()
+            ) {
               return ++acc;
             } else {
-              recommendations.push(
-                testsInformation[id].recommendations[curr.id]
-              );
               return acc;
             };
           }
@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
         const result = {
           rightAnswersCount,
           questionsCount,
+          rightAnswers,
           recommendations,
         };
         res.send(result);
